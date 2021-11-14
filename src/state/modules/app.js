@@ -14,5 +14,5 @@ const appSlice = createSlice({
 
 export default appSlice.reducer;
 export const {
-  setUser
+  setLoading
 } = appSlice.actions;
