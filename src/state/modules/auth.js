@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import authAPI from '../../api/authAPI';
+import authAPI from 'api/authAPI';
 import { setLoading } from './app';
 
 const user = JSON.parse(localStorage.getItem('user'));
