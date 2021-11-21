@@ -2,9 +2,7 @@ import { Navigate, Outlet } from 'react-router-dom';
 
 const Dashboard = (props) => {
   if (!props.loggedIn) {
-    return (
-      <Navigate to="/auth" />
-    );
+    return <Navigate to="/auth" />;
   }
 
   return (
@@ -13,6 +11,6 @@ const Dashboard = (props) => {
       <Outlet />
     </>
   );
-}
+};
 
 export default Dashboard;

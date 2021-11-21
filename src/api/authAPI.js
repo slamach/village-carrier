@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const axiosInstance = axios.create({
-  baseURL: 'http://20.67.104.18/api/auth/'
+  baseURL: 'http://20.67.104.18/api/v1/auth/'
 });
 
 const authAPI = {
@@ -11,7 +11,7 @@ const authAPI = {
 
   async register(username, password) {
     return axiosInstance.post('register', { username, password });
-  },
-}
+  }
+};
 
 export default authAPI;

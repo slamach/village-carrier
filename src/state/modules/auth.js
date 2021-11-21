@@ -19,11 +19,14 @@ const authSlice = createSlice({
     authFailure: (state, action) => {
       switch (action.payload.status) {
         case 400:
-          state.authErrorMessage = 'Данные введены неверно!'
+          state.authErrorMessage = 'Неверные имя пользователя или пароль!';
           break;
         default:
           state.authErrorMessage = `Непредвиденный ответ ${action.payload.status} от сервера!`;
       }
+    },
+    clearAuthErrorMessage: (state, action) => {
+      state.authErrorMessage = '';
     },
     logout: (state, action) => {
       state.user = undefined;
@@ -33,6 +36,7 @@ const authSlice = createSlice({
 });
 
 export default authSlice.reducer;
+export const { clearAuthErrorMessage } = authSlice.actions;
 
 export const login = (username, password) => async (dispatch, getState) => {
   dispatch(setLoading(true));
@@ -41,10 +45,8 @@ export const login = (username, password) => async (dispatch, getState) => {
     const user = {
       username,
       token: response.data.token
-    }
-    dispatch(
-      authSlice.actions.authSuccess(user)
-    );
+    };
+    dispatch(authSlice.actions.authSuccess(user));
     localStorage.setItem('user', JSON.stringify(user));
   } catch (error) {
     dispatch(
@@ -55,7 +57,7 @@ export const login = (username, password) => async (dispatch, getState) => {
     );
   }
   dispatch(setLoading(false));
-}
+};
 
 export const register = (username, password) => async (dispatch, getState) => {
   dispatch(setLoading(true));
@@ -64,10 +66,8 @@ export const register = (username, password) => async (dispatch, getState) => {
     const user = {
       username,
       token: response.data.token
-    }
-    dispatch(
-      authSlice.actions.authSuccess(user)
-    );
+    };
+    dispatch(authSlice.actions.authSuccess(user));
     localStorage.setItem('user', JSON.stringify(user));
   } catch (error) {
     dispatch(
@@ -78,11 +78,9 @@ export const register = (username, password) => async (dispatch, getState) => {
     );
   }
   dispatch(setLoading(false));
-}
+};
 
 export const logout = () => async (dispatch, getState) => {
-  dispatch(
-    authSlice.actions.logout()
-  );
+  dispatch(authSlice.actions.logout());
   localStorage.removeItem('user');
-}
+};
