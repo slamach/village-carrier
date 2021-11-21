@@ -10,7 +10,7 @@ const Authentication = (props) => {
   return (
     <AuthContainer>
       <AuthSpecificGlobalStyle />
-      <LongLogo src={logo} alt="Village Carrier" />
+      <LongLogo src={logo} width="247" height="24" alt="Village Carrier" />
       <Outlet />
     </AuthContainer>
   );

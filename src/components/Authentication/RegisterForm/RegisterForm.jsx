@@ -1,11 +1,13 @@
 import { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { MenuLink } from '../AuthenticationStyles';
 import { useForm } from 'react-hook-form';
 import { InputContainer, InputLabel, Input, Button, ErrorMessage } from '../AuthenticationStyles';
 
 const RegisterForm = (props) => {
   useEffect(() => {
-    props.clearAuthErrorMessage();
+    return () => {
+      props.clearAuthErrorMessage();
+    };
     // eslint-disable-next-line
   }, []);
 
@@ -25,14 +27,15 @@ const RegisterForm = (props) => {
 
   return (
     <>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form
+        onSubmit={handleSubmit(onSubmit, props.authErrorMessage && props.clearAuthErrorMessage)}>
         <InputContainer>
           <InputLabel htmlFor="register-username">Имя пользователя</InputLabel>
           <Input
             id="register-username"
             type="text"
             {...register('username', {
-              required: 'Введите имя пользователя!',
+              required: 'Введите имя пользователя и пароль!',
               minLength: {
                 value: 4,
                 message: 'Имя пользователя должно содержать не менее 4 символов!'
@@ -46,7 +49,7 @@ const RegisterForm = (props) => {
             id="register-password"
             type="password"
             {...register('password', {
-              required: 'Введите пароль!',
+              required: 'Введите имя пользователя и пароль!',
               minLength: {
                 value: 8,
                 message: 'Пароль должнен содержать не менее 8 символов!'
@@ -57,7 +60,7 @@ const RegisterForm = (props) => {
         {errorMessage && <ErrorMessage>{errorMessage}</ErrorMessage>}
         <Button type="submit">Зарегистрироваться</Button>
       </form>
-      <Link to="/auth">Уже есть аккаунт?</Link>
+      <MenuLink to="/auth">Уже есть аккаунт?</MenuLink>
     </>
   );
 };

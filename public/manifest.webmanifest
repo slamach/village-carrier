@@ -1,16 +1,21 @@
 {
   "name": "Village Carrier",
+  "start_url": "/",
+  "display": "standalone",
   "icons": [
     {
       "src": "img/favicon-192.png",
       "type": "image/png",
-      "sizes": "192x192"
+      "sizes": "192x192",
+      "purpose": "maskable"
     },
     {
       "src": "img/favicon-512.png",
       "type": "image/png",
-      "sizes": "512x512"
+      "sizes": "512x512",
+      "purpose": "maskable"
     }
   ],
-  "theme_color": "#000000"
+  "theme_color": "#593d29",
+  "background_color": "#593d29"
 }

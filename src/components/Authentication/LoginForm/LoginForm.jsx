@@ -1,11 +1,13 @@
 import { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { MenuLink } from '../AuthenticationStyles';
 import { useForm } from 'react-hook-form';
 import { InputContainer, InputLabel, Input, Button, ErrorMessage } from '../AuthenticationStyles';
 
 const LoginForm = (props) => {
   useEffect(() => {
-    props.clearAuthErrorMessage();
+    return () => {
+      props.clearAuthErrorMessage();
+    };
     // eslint-disable-next-line
   }, []);
 
@@ -23,7 +25,8 @@ const LoginForm = (props) => {
 
   return (
     <>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form
+        onSubmit={handleSubmit(onSubmit, props.authErrorMessage && props.clearAuthErrorMessage)}>
         <InputContainer>
           <InputLabel htmlFor="login-username">Имя пользователя</InputLabel>
           <Input id="login-username" type="text" {...register('username', { required: true })} />
@@ -39,7 +42,7 @@ const LoginForm = (props) => {
         {errorMessage && <ErrorMessage>{errorMessage}</ErrorMessage>}
         <Button type="submit">Войти</Button>
       </form>
-      <Link to="/auth/register">Нет аккаунта?</Link>
+      <MenuLink to="/auth/register">Нет аккаунта?</MenuLink>
     </>
   );
 };

@@ -14,10 +14,6 @@ export const theme = {
     defaultSize: '21px',
     smallSize: '17px',
     textShadow: '2px 2px 0px #383838'
-  },
-  elements: {
-    buttonShadow:
-      'inset 1.5px 1.5px 0px rgba(255, 255, 255, 0.4), inset -1.5px -3px 0px rgba(0, 0, 0, 0.3)'
   }
 };
 

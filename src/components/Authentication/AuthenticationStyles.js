@@ -1,5 +1,6 @@
 import styled from 'styled-components/macro';
 import { createGlobalStyle } from 'styled-components';
+import { Link } from 'react-router-dom';
 import optionsBackground from '../../assets/img/bg-options.png';
 import buttonBackground from '../../assets/img/bg-button.png';
 
@@ -39,7 +40,8 @@ export const Button = styled.button`
   background-color: #6d6d6d;
   background-image: url(${buttonBackground});
   border: 3px solid #000000;
-  box-shadow: ${({ theme }) => theme.elements.buttonShadow};
+  box-shadow: inset 1.5px 1.5px 0px rgba(255, 255, 255, 0.4),
+    inset -1.5px -3px 0px rgba(0, 0, 0, 0.3);
   cursor: pointer;
 
   &:hover,
@@ -64,6 +66,10 @@ export const ErrorMessage = styled.p`
   ${InputLabel} {
     margin-bottom: 10px;
   }
+`;
+
+export const MenuLink = styled(Link)`
+  color: ${({ theme }) => theme.colors.menuAddText};
 `;
 
 export const AuthContainer = styled.main`
@@ -97,9 +103,5 @@ export const AuthContainer = styled.main`
   ${ErrorMessage} {
     text-align: left;
     margin-top: 15px;
-  }
-
-  a {
-    color: ${({ theme }) => theme.colors.menuAddText};
   }
 `;
