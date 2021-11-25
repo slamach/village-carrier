@@ -1,7 +1,8 @@
 import { useEffect } from 'react';
 import { MenuLink } from '../AuthenticationStyles';
 import { useForm } from 'react-hook-form';
-import { InputContainer, InputLabel, Input, Button, ErrorMessage } from '../AuthenticationStyles';
+import { InputContainer, InputLabel, Input, ErrorMessage } from '../AuthenticationStyles';
+import { Button } from '../../AppStyles';
 
 const LoginForm = (props) => {
   useEffect(() => {
@@ -29,13 +30,14 @@ const LoginForm = (props) => {
         onSubmit={handleSubmit(onSubmit, props.authErrorMessage && props.clearAuthErrorMessage)}>
         <InputContainer>
           <InputLabel htmlFor="login-username">Имя пользователя</InputLabel>
-          <Input id="login-username" type="text" {...register('username', { required: true })} />
+          <Input id="login-username" type="text" autoComplete="username" {...register('username', { required: true })} />
         </InputContainer>
         <InputContainer>
           <InputLabel htmlFor="login-password">Пароль</InputLabel>
           <Input
             id="login-password"
             type="password"
+            autoComplete="current-password"
             {...register('password', { required: true })}
           />
         </InputContainer>

@@ -1,4 +1,7 @@
 import { Navigate, Outlet } from 'react-router-dom';
+import { DashboardSpecificGlobalStyle } from './DashboardStyles';
+import Header from './Header/HeaderContainer';
+import { DashboardContainer } from './DashboardStyles';
 
 const Dashboard = (props) => {
   if (!props.loggedIn) {
@@ -7,8 +10,11 @@ const Dashboard = (props) => {
 
   return (
     <>
-      <p>Dashboard</p>
-      <Outlet />
+      <DashboardSpecificGlobalStyle />
+      <Header />
+      <DashboardContainer>
+        <Outlet />
+      </DashboardContainer>
     </>
   );
 };

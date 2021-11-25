@@ -1,5 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
+import styled from 'styled-components/macro';
 import minecraft from 'assets/fonts/minecraft.woff2';
+import buttonBackground from 'assets/img/bg-button.png';
 
 export const theme = {
   colors: {
@@ -8,7 +10,8 @@ export const theme = {
     menuAddText: '#a0a0a0',
     inputText: '#e0e0e0',
     disabledText: '#9e9e9e',
-    error: '#fc5454'
+    error: '#fc5454',
+    highlight: '#fcfc00'
   },
   fonts: {
     defaultSize: '21px',
@@ -36,11 +39,11 @@ export const GlobalStyle = createGlobalStyle`
 
   html {
     height: 100%;
-    overflow-x: hidden;
   }
 
   body {
     position: relative;
+    min-width: 1280px;
     width: 100%;
     height: 100%;
     font-size: ${theme.fonts.defaultSize};
@@ -61,5 +64,24 @@ export const GlobalStyle = createGlobalStyle`
   a {
     color: inherit;
     text-decoration: none;
+  }
+`;
+
+export const Button = styled.button`
+  display: inline-block;
+  padding: 11px 11px 12px;
+  font: inherit;
+  color: ${({ theme }) => theme.colors.menuText};
+  text-shadow: ${({ theme }) => theme.fonts.textShadow};
+  background-color: #6d6d6d;
+  background-image: url(${buttonBackground});
+  border: 3px solid #000000;
+  box-shadow: inset 1.5px 1.5px 0px rgba(255, 255, 255, 0.4),
+    inset -1.5px -3px 0px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    border-color: #ffffff;
   }
 `;

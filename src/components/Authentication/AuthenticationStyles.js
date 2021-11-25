@@ -1,8 +1,8 @@
 import styled from 'styled-components/macro';
 import { createGlobalStyle } from 'styled-components';
 import { Link } from 'react-router-dom';
-import optionsBackground from '../../assets/img/bg-options.png';
-import buttonBackground from '../../assets/img/bg-button.png';
+import optionsBackground from 'assets/img/bg-options.png';
+import { Button } from '../AppStyles';
 
 export const AuthSpecificGlobalStyle = createGlobalStyle`
   body {
@@ -25,24 +25,6 @@ export const Input = styled.input`
   text-shadow: ${({ theme }) => theme.fonts.textShadow};
   background-color: #000000;
   border: 3px solid ${({ theme }) => theme.colors.menuAddText};
-
-  &:hover,
-  &:focus {
-    border-color: #ffffff;
-  }
-`;
-
-export const Button = styled.button`
-  padding: 11px 11px 12px;
-  font: inherit;
-  color: ${({ theme }) => theme.colors.menuText};
-  text-shadow: ${({ theme }) => theme.fonts.textShadow};
-  background-color: #6d6d6d;
-  background-image: url(${buttonBackground});
-  border: 3px solid #000000;
-  box-shadow: inset 1.5px 1.5px 0px rgba(255, 255, 255, 0.4),
-    inset -1.5px -3px 0px rgba(0, 0, 0, 0.3);
-  cursor: pointer;
 
   &:hover,
   &:focus {

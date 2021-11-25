@@ -1,7 +1,8 @@
 import { useEffect } from 'react';
 import { MenuLink } from '../AuthenticationStyles';
 import { useForm } from 'react-hook-form';
-import { InputContainer, InputLabel, Input, Button, ErrorMessage } from '../AuthenticationStyles';
+import { InputContainer, InputLabel, Input, ErrorMessage } from '../AuthenticationStyles';
+import { Button } from '../../AppStyles';
 
 const RegisterForm = (props) => {
   useEffect(() => {
@@ -34,6 +35,7 @@ const RegisterForm = (props) => {
           <Input
             id="register-username"
             type="text"
+            autoComplete="username"
             {...register('username', {
               required: 'Введите имя пользователя и пароль!',
               minLength: {
@@ -48,6 +50,7 @@ const RegisterForm = (props) => {
           <Input
             id="register-password"
             type="password"
+            autoComplete="new-password"
             {...register('password', {
               required: 'Введите имя пользователя и пароль!',
               minLength: {
