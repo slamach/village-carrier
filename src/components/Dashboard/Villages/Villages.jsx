@@ -1,26 +1,18 @@
-import { VillagesList, VillagesItem, VillageLink } from './VillagesStyles';
+import { useEffect } from 'react';
+import { VillagesList } from './VillagesStyles';
+import Village from './Village/Village';
 
 const Villages = (props) => {
+  useEffect(() => {
+    props.getVillages();
+    // eslint-disable-next-line
+  }, []);
+
   return (
     <VillagesList>
-      <VillagesItem>
-        <VillageLink to="/village/2">
-          <h2>Деревня</h2>
-        </VillageLink>
-        <p>X: 2 Z: 3</p>
-      </VillagesItem>
-      <VillagesItem>
-        <VillageLink to="/village/2">
-          <h2>Деревня</h2>
-        </VillageLink>
-        <p>X: 2 Z: 3</p>
-      </VillagesItem>
-      <VillagesItem>
-        <VillageLink to="/village/2">
-          <h2>Деревня</h2>
-        </VillageLink>
-        <p>X: 2 Z: 3</p>
-      </VillagesItem>
+      {props.villages.map((village) => (
+        <Village key={village.id} {...village} />
+      ))}
     </VillagesList>
   );
 };

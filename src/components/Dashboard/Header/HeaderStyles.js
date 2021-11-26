@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { MainContainer } from '../DashboardStyles';
 
 export const MenuItem = styled.li``;
 
@@ -70,10 +69,10 @@ export const NavBar = styled.nav`
   }
 `;
 
-export const StyledHeader = styled(MainContainer)`
-  margin-bottom: 15px;
-  padding-top: 20px;
-  padding-bottom: 20px;
+export const StyledHeader = styled.header`
+  width: ${({ theme }) => theme.breakpoints.desktop};
+  margin: 0 auto 15px;
+  padding: 20px 40px;
 
   ${StatList} {
     margin-right: auto;

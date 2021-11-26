@@ -6,7 +6,8 @@ import Authentication from './Authentication/AuthenticationContainer';
 import LoginForm from './Authentication/LoginForm/LoginFormContainer';
 import RegisterForm from './Authentication/RegisterForm/RegisterFormContainer';
 import Dashboard from './Dashboard/DashboardContainer';
-import Villages from './Dashboard/Villages/Villages';
+import Villagers from './Dashboard/Villagers/VillagersContainer';
+import Villages from './Dashboard/Villages/VillagesContainer';
 
 const App = (props) => {
   return (
@@ -15,8 +16,8 @@ const App = (props) => {
       <Routes>
         <Route path="/" element={<Dashboard />}>
           <Route index element={<Villages />} />
-          <Route path="/village/:id" element={<p>Villagers of village</p>} />
-          <Route path="/villager/:id" element={<p>Offers of villager</p>} />
+          <Route path="/village/:villageId" element={<Villagers />} />
+          <Route path="/villager/:villagerId" element={<p>Offers of villager</p>} />
           <Route path="/profile" element={<p>Profile</p>} />
         </Route>
         <Route path="/auth" element={<Authentication />}>

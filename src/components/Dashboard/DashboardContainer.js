@@ -1,10 +1,18 @@
 import { connect } from 'react-redux';
 import Dashboard from './Dashboard';
+import { getUserData } from 'state/modules/dashboard';
 
 function mapStateToProps(state) {
   return {
-    loggedIn: state.auth.loggedIn
+    loggedIn: state.auth.loggedIn,
+    loading: state.app.loading
   };
 }
 
-export default connect(mapStateToProps, null)(Dashboard);
+function mapDispatchToProps(dispatch) {
+  return {
+    getUserData: () => dispatch(getUserData())
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);

@@ -1,7 +1,15 @@
 import { Link } from 'react-router-dom';
 import { Button } from '../../AppStyles';
 import shortLogo from 'assets/img/logo-short.svg';
-import { MenuItem, MenuList, NavBar, NavLogo, StatItem, StatList, StyledHeader } from './HeaderStyles';
+import {
+  MenuItem,
+  MenuList,
+  NavBar,
+  NavLogo,
+  StatItem,
+  StatList,
+  StyledHeader
+} from './HeaderStyles';
 import emerald from 'assets/img/emerald.png';
 
 const Header = (props) => {
@@ -12,7 +20,7 @@ const Header = (props) => {
           <img src={shortLogo} alt="Village Carrier" />
         </NavLogo>
         <StatList>
-          <StatItem icon={emerald}>1024</StatItem>
+          <StatItem icon={emerald}>{props.userEmeralds}</StatItem>
         </StatList>
         <MenuList>
           <MenuItem>

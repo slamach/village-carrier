@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import authAPI from 'api/authAPI';
-import { setLoading } from './app';
+import { incLoading, decLoading } from './app';
 
 const user = JSON.parse(localStorage.getItem('user'));
 
@@ -39,7 +39,7 @@ export default authSlice.reducer;
 export const { clearAuthErrorMessage } = authSlice.actions;
 
 export const login = (username, password) => async (dispatch, getState) => {
-  dispatch(setLoading(true));
+  dispatch(incLoading());
   try {
     const response = await authAPI.login(username, password);
     const user = {
@@ -56,11 +56,11 @@ export const login = (username, password) => async (dispatch, getState) => {
       })
     );
   }
-  dispatch(setLoading(false));
+  dispatch(decLoading());
 };
 
 export const register = (username, password) => async (dispatch, getState) => {
-  dispatch(setLoading(true));
+  dispatch(incLoading());
   try {
     const response = await authAPI.register(username, password);
     const user = {
@@ -77,7 +77,7 @@ export const register = (username, password) => async (dispatch, getState) => {
       })
     );
   }
-  dispatch(setLoading(false));
+  dispatch(decLoading());
 };
 
 export const logout = () => async (dispatch, getState) => {

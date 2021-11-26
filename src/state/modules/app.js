@@ -3,14 +3,17 @@ import { createSlice } from '@reduxjs/toolkit';
 const appSlice = createSlice({
   name: 'app',
   initialState: {
-    loading: false
+    loading: 0
   },
   reducers: {
-    setLoading: (state, action) => {
-      state.loading = action.payload;
+    incLoading: (state, action) => {
+      state.loading += 1;
+    },
+    decLoading: (state, action) => {
+      state.loading -= 1;
     }
   }
 });
 
 export default appSlice.reducer;
-export const { setLoading } = appSlice.actions;
+export const { incLoading, decLoading } = appSlice.actions;

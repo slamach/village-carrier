@@ -4,6 +4,9 @@ import minecraft from 'assets/fonts/minecraft.woff2';
 import buttonBackground from 'assets/img/bg-button.png';
 
 export const theme = {
+  breakpoints: {
+    desktop: '1280px'
+  },
   colors: {
     mainText: '#3f3f3f',
     menuText: '#fcfcfc',
