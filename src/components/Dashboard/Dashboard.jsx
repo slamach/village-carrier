@@ -19,6 +19,8 @@ const Dashboard = (props) => {
     return <Navigate to="/auth" />;
   }
 
+  // TODO: Сделать вывод ошибок
+
   return (
     <>
       <DashboardSpecificGlobalStyle />

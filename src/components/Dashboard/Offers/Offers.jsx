@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useParams } from 'react-router';
 import { OffersList } from './OffersStyles';
-import Offer from './Offer/Offer';
+import Offer from './Offer/OfferContainer';
 
 const Offers = (props) => {
   let { villagerId } = useParams();

@@ -17,6 +17,7 @@ const authSlice = createSlice({
       state.loggedIn = true;
     },
     authFailure: (state, action) => {
+      // TODO: Разобрать разные ошибки
       switch (action.payload.status) {
         case 400:
           state.authErrorMessage = 'Неверные имя пользователя или пароль!';

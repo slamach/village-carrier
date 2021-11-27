@@ -13,6 +13,7 @@ const villagesSlice = createSlice({
       state.villages = action.payload;
     },
     getVillagesFailure: (state, action) => {
+      // TODO: Разобрать ошибки
       switch (action.payload.status) {
         default:
           state.villagesErrorMessage = `Непредвиденный ответ ${action.payload.status} от сервера!`;

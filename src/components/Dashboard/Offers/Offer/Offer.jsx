@@ -4,6 +4,10 @@ import Item from './Item/Item';
 import arrowIcon from 'assets/img/arrow.png';
 
 const Offer = (props) => {
+  const makeNewDeal = () => {
+    props.makeNewDeal(props.offerId);
+  };
+
   return (
     <OffersItem>
       <ItemsRow>
@@ -15,7 +19,7 @@ const Offer = (props) => {
         <img src={arrowIcon} alt="" />
         <Item {...props.sellingItem} amount={props.amountOfSellingItems} />
       </ItemsRow>
-      <Button disabled={!props.canBeTraded}>Обменять</Button>
+      <Button disabled={!props.canBeTraded} onClick={makeNewDeal}>Обменять</Button>
     </OffersItem>
   );
 };

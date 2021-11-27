@@ -13,6 +13,7 @@ const profileSlice = createSlice({
       state.userEmeralds = action.payload.amountOfEmeralds;
     },
     getUserDataFailure: (state, action) => {
+      // TODO: Разобрать ошибки
       switch (action.payload.status) {
         default:
           state.profileErrorMessage = `Непредвиденный ответ ${action.payload.status} от сервера!`;
