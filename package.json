@@ -1,7 +1,7 @@
 {
   "name": "village-carrier",
   "author": "Dmitry Sviridov",
-  "homepage": "https://slamach.github.io/village-carrier/",
+  "homepage": "https://vc.dmitrysviridov.ru",
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^1.6.2",
