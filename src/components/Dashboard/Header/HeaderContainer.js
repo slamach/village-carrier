@@ -4,7 +4,7 @@ import Header from './Header';
 
 function mapStateToProps(state) {
   return {
-    userEmeralds: state.dashboard.userEmeralds
+    userEmeralds: state.profile.userEmeralds
   };
 }
 

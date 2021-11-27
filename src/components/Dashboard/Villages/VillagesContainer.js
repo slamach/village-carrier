@@ -1,10 +1,10 @@
 import { connect } from 'react-redux';
-import { getVillages } from 'state/modules/dashboard';
+import { getVillages } from 'state/modules/villages';
 import Villages from './Villages';
 
 function mapStateToProps(state) {
   return {
-    villages: state.dashboard.villages
+    villages: state.villages.villages
   };
 }
 

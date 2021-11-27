@@ -53,9 +53,10 @@ const Village = (props) => {
 
   return (
     <VillagesItem>
-      <p>{props.reputationLevel}</p>
+      {/* TODO: Добавить поддержку уровня репутации */}
+      {/* <p>{props.reputationLevel}</p> */}
       <img src={skin} alt={`${props.professionName} - скин`} />
-      <VillageLink to={`/villager/${props.id}`}>
+      <VillageLink to={`/villager/${props.villagerId}`}>
         <h2>{props.name}</h2>
       </VillageLink>
       <p>{props.professionName}</p>

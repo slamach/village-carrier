@@ -20,6 +20,12 @@ export const theme = {
     defaultSize: '21px',
     smallSize: '17px',
     textShadow: '2px 2px 0px #383838'
+  },
+  elements: {
+    containerShadow:
+      '4px 0 0 0 #555555, 0 4px 0 0 #555555, 2px 2px 0 0 #555555, -4px 0 0 0 #e8e8e8, 0 -4px 0 0 #e8e8e8, -2px -2px 0 0 #e8e8e8, 0 0 0 2px #b5b4b5, 2px 4px 0 0 #555, 4px 2px 0 0 #555, -2px -4px 0 0 #e8e8e8, -4px -2px 0 0 #e8e8e8, 4px -2px 0 0 #000000, 2px -4px 0 0 #000000, -4px 2px 0 0 #000000, -2px 4px 0 0 #000000, -4px -4px 0 0 #000000, 4px 4px 0 0 #000000, -6px 0 0 0 #000000, -6px -2px 0 0 #000000, 6px 0 0 0 #000000, 6px 2px 0 0 #000000, 0 -6px 0 0 #000000, -2px -6px 0 0 #000000, 0 6px 0 0 #000000, 2px 6px 0 0 #000000',
+    containerShadowHover:
+      '4px 0 0 0 #555555, 0 4px 0 0 #555555, 2px 2px 0 0 #555555, -4px 0 0 0 #e8e8e8, 0 -4px 0 0 #e8e8e8, -2px -2px 0 0 #e8e8e8, 0 0 0 2px #b5b4b5, 2px 4px 0 0 #555, 4px 2px 0 0 #555, -2px -4px 0 0 #e8e8e8, -4px -2px 0 0 #e8e8e8, 4px -2px 0 0 #ffffff, 2px -4px 0 0 #ffffff, -4px 2px 0 0 #ffffff, -2px 4px 0 0 #ffffff, -4px -4px 0 0 #ffffff, 4px 4px 0 0 #ffffff, -6px 0 0 0 #ffffff, -6px -2px 0 0 #ffffff, 6px 0 0 0 #ffffff, 6px 2px 0 0 #ffffff, 0 -6px 0 0 #ffffff, -2px -6px 0 0 #ffffff, 0 6px 0 0 #ffffff, 2px 6px 0 0 #ffffff'
   }
 };
 
@@ -29,7 +35,7 @@ export const GlobalStyle = createGlobalStyle`
     font-style: normal;
     font-weight: 400;
     font-display: swap;
-    src: url(${minecraft}) format('woff2');
+    src: url('${minecraft}') format('woff2');
   }
 
   *,
@@ -72,12 +78,13 @@ export const GlobalStyle = createGlobalStyle`
 
 export const Button = styled.button`
   display: inline-block;
-  padding: 11px 11px 12px;
+  padding: 10px 11px 12px;
   font: inherit;
+  text-align: center;
   color: ${({ theme }) => theme.colors.menuText};
   text-shadow: ${({ theme }) => theme.fonts.textShadow};
   background-color: #6d6d6d;
-  background-image: url(${buttonBackground});
+  background-image: url('${buttonBackground}');
   border: 3px solid #000000;
   box-shadow: inset 1.5px 1.5px 0px rgba(255, 255, 255, 0.4),
     inset -1.5px -3px 0px rgba(0, 0, 0, 0.3);
@@ -87,4 +94,28 @@ export const Button = styled.button`
   &:focus {
     border-color: #ffffff;
   }
+
+  &:disabled {
+    color: ${({ theme }) => theme.colors.disabledText};
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+      url('${buttonBackground}');
+    box-shadow: none;
+    cursor: default;
+
+    &:hover {
+      border-color: #000000;
+    }
+  }
+`;
+
+export const VisuallyHidden = styled.p`
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  border: 0;
+  clip: rect(0 0 0 0);
 `;

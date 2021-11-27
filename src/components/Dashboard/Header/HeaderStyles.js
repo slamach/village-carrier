@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { Button } from 'components/AppStyles';
 
 export const MenuItem = styled.li``;
 
@@ -15,10 +16,15 @@ export const MenuList = styled.ul`
       margin-right: 0;
     }
   }
+
+  ${Button} {
+    min-width: 200px;
+  }
 `;
 
 export const StatItem = styled.li`
   position: relative;
+  user-select: none;
 
   ${({ icon }) => {
     if (icon) {

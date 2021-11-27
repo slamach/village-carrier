@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Dashboard from './Dashboard';
-import { getUserData } from 'state/modules/dashboard';
+import { getUserData } from 'state/modules/profile';
 
 function mapStateToProps(state) {
   return {

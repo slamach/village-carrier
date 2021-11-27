@@ -13,7 +13,7 @@ const Villagers = (props) => {
   return (
     <VillagersList>
       {props.villagers.map((villager) => (
-        <Villager key={villager.id} {...villager} />
+        <Villager key={villager.villagerId} {...villager} />
       ))}
     </VillagersList>
   );
