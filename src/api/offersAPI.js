@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const axiosInstance = axios.create({
-  baseURL: 'http://20.67.104.18/api/v1/offers/'
+  baseURL: 'https://vc-api.dmitrysviridov.ru/api/v1/offers/'
 });
 
 // TODO: Настроить пагинацию
