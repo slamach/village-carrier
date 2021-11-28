@@ -7,14 +7,12 @@ const user = JSON.parse(localStorage.getItem('user'));
 const authSlice = createSlice({
   name: 'auth',
   initialState: {
-    loggedIn: user ? true : false,
     user: user ? user : undefined,
     authErrorMessage: ''
   },
   reducers: {
     authSuccess: (state, action) => {
       state.user = action.payload;
-      state.loggedIn = true;
     },
     authFailure: (state, action) => {
       // TODO: Разобрать разные ошибки
@@ -31,7 +29,6 @@ const authSlice = createSlice({
     },
     logout: (state, action) => {
       state.user = undefined;
-      state.loggedIn = false;
     }
   }
 });
@@ -45,6 +42,7 @@ export const login = (username, password) => async (dispatch, getState) => {
     const response = await authAPI.login(username, password);
     const user = {
       username,
+      id: response.data.playerId,
       token: response.data.token
     };
     dispatch(authSlice.actions.authSuccess(user));
@@ -66,6 +64,7 @@ export const register = (username, password) => async (dispatch, getState) => {
     const response = await authAPI.register(username, password);
     const user = {
       username,
+      id: response.data.playerId,
       token: response.data.token
     };
     dispatch(authSlice.actions.authSuccess(user));

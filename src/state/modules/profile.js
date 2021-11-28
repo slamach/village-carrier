@@ -6,6 +6,7 @@ const profileSlice = createSlice({
   name: 'profile',
   initialState: {
     userEmeralds: 0,
+    inventory: [],
     profileErrorMessage: ''
   },
   reducers: {
@@ -13,6 +14,12 @@ const profileSlice = createSlice({
       state.userEmeralds = action.payload.amountOfEmeralds;
     },
     getUserDataFailure: (state, action) => {
+      state.userEmeralds = action.payload.amountOfEmeralds;
+    },
+    getInventorySuccess: (state, action) => {
+      state.inventory = action.payload;
+    },
+    getInventoryFailure: (state, action) => {
       // TODO: Разобрать ошибки
       switch (action.payload.status) {
         default:
@@ -36,6 +43,35 @@ export const getUserData = () => async (dispatch, getState) => {
         data: error.response.data
       })
     );
+  }
+  dispatch(decLoading());
+};
+
+export const getInventory = () => async (dispatch, getState) => {
+  dispatch(incLoading());
+  try {
+    const response = await playerAPI.getInventory(getState().auth.user.id, getState().auth.user.token);
+    dispatch(profileSlice.actions.getInventorySuccess(response.data));
+  } catch (error) {
+    dispatch(
+      profileSlice.actions.getInventoryFailure({
+        status: error.response.status,
+        data: error.response.data
+      })
+    );
+  }
+  dispatch(decLoading());
+};
+
+export const makeNewWithdrawal = () => async (dispatch, getState) => {
+  dispatch(incLoading());
+  try {
+    await playerAPI.makeNewWithdrawal(getState().auth.user.token);
+    dispatch(getUserData());
+    dispatch(getInventory());
+  } catch (error) {
+    // FIXME: Добавить обработку ошибок
+    console.log(`${error.response.status}: ${error.message}`);
   }
   dispatch(decLoading());
 };

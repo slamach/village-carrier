@@ -14,7 +14,9 @@ export const theme = {
     inputText: '#e0e0e0',
     disabledText: '#9e9e9e',
     error: '#fc5454',
-    highlight: '#fcfc00'
+    highlight: '#fcfc00',
+    slotBackground: '#8b8b8b',
+    slotBackgroundHover: '#c3c3c3'
   },
   fonts: {
     defaultSize: '21px',
@@ -25,7 +27,9 @@ export const theme = {
     containerShadow:
       '4px 0 0 0 #555555, 0 4px 0 0 #555555, 2px 2px 0 0 #555555, -4px 0 0 0 #e8e8e8, 0 -4px 0 0 #e8e8e8, -2px -2px 0 0 #e8e8e8, 0 0 0 2px #b5b4b5, 2px 4px 0 0 #555, 4px 2px 0 0 #555, -2px -4px 0 0 #e8e8e8, -4px -2px 0 0 #e8e8e8, 4px -2px 0 0 #000000, 2px -4px 0 0 #000000, -4px 2px 0 0 #000000, -2px 4px 0 0 #000000, -4px -4px 0 0 #000000, 4px 4px 0 0 #000000, -6px 0 0 0 #000000, -6px -2px 0 0 #000000, 6px 0 0 0 #000000, 6px 2px 0 0 #000000, 0 -6px 0 0 #000000, -2px -6px 0 0 #000000, 0 6px 0 0 #000000, 2px 6px 0 0 #000000',
     containerShadowHover:
-      '4px 0 0 0 #555555, 0 4px 0 0 #555555, 2px 2px 0 0 #555555, -4px 0 0 0 #e8e8e8, 0 -4px 0 0 #e8e8e8, -2px -2px 0 0 #e8e8e8, 0 0 0 2px #b5b4b5, 2px 4px 0 0 #555, 4px 2px 0 0 #555, -2px -4px 0 0 #e8e8e8, -4px -2px 0 0 #e8e8e8, 4px -2px 0 0 #ffffff, 2px -4px 0 0 #ffffff, -4px 2px 0 0 #ffffff, -2px 4px 0 0 #ffffff, -4px -4px 0 0 #ffffff, 4px 4px 0 0 #ffffff, -6px 0 0 0 #ffffff, -6px -2px 0 0 #ffffff, 6px 0 0 0 #ffffff, 6px 2px 0 0 #ffffff, 0 -6px 0 0 #ffffff, -2px -6px 0 0 #ffffff, 0 6px 0 0 #ffffff, 2px 6px 0 0 #ffffff'
+      '4px 0 0 0 #555555, 0 4px 0 0 #555555, 2px 2px 0 0 #555555, -4px 0 0 0 #e8e8e8, 0 -4px 0 0 #e8e8e8, -2px -2px 0 0 #e8e8e8, 0 0 0 2px #b5b4b5, 2px 4px 0 0 #555, 4px 2px 0 0 #555, -2px -4px 0 0 #e8e8e8, -4px -2px 0 0 #e8e8e8, 4px -2px 0 0 #ffffff, 2px -4px 0 0 #ffffff, -4px 2px 0 0 #ffffff, -2px 4px 0 0 #ffffff, -4px -4px 0 0 #ffffff, 4px 4px 0 0 #ffffff, -6px 0 0 0 #ffffff, -6px -2px 0 0 #ffffff, 6px 0 0 0 #ffffff, 6px 2px 0 0 #ffffff, 0 -6px 0 0 #ffffff, -2px -6px 0 0 #ffffff, 0 6px 0 0 #ffffff, 2px 6px 0 0 #ffffff',
+    inventorySlotShadow:
+      '1.5px 1.5px 0px 1.5px #FFFFFF, -1.5px -1.5px 0px 1.5px #373737, 0px 0px 0px 3px #8B8B8B'
   }
 };
 
@@ -77,7 +81,7 @@ export const GlobalStyle = createGlobalStyle`
 `;
 
 export const Button = styled.button`
-  display: inline-block;
+  display: block;
   padding: 10px 11px 12px;
   font: inherit;
   text-align: center;

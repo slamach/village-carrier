@@ -9,13 +9,13 @@ import Header from './Header/HeaderContainer';
 
 const Dashboard = (props) => {
   useEffect(() => {
-    if (props.loggedIn) {
+    if (props.user) {
       props.getUserData();
     }
     // eslint-disable-next-line
   }, []);
 
-  if (!props.loggedIn) {
+  if (!props.user) {
     return <Navigate to="/auth" />;
   }
 

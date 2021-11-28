@@ -4,7 +4,7 @@ import { getUserData } from 'state/modules/profile';
 
 function mapStateToProps(state) {
   return {
-    loggedIn: state.auth.loggedIn,
+    user: state.auth.user,
     loading: state.app.loading
   };
 }

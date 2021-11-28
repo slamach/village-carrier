@@ -3,7 +3,7 @@ import { AuthSpecificGlobalStyle, AuthContainer, LongLogo } from './Authenticati
 import longLogo from 'assets/img/logo-long.svg';
 
 const Authentication = (props) => {
-  if (props.loggedIn) {
+  if (props.user) {
     return <Navigate to="/" />;
   }
 

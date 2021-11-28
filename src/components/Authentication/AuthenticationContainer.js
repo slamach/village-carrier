@@ -3,7 +3,7 @@ import Authentication from './Authentication';
 
 function mapStateToProps(state) {
   return {
-    loggedIn: state.auth.loggedIn
+    user: state.auth.user
   };
 }
 

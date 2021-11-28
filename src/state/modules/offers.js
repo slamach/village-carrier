@@ -50,6 +50,7 @@ export const makeNewDeal = (offerId) => async (dispatch, getState) => {
     dispatch(getUserData());
     dispatch(getOffers(getState().offers.lastRequstedVillagerId));
   } catch (error) {
+    // FIXME: Добавить обработку ошибок
     console.log(`${error.response.status}: ${error.message}`);
   }
   dispatch(decLoading());
