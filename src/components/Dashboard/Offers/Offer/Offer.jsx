@@ -12,14 +12,14 @@ const Offer = (props) => {
     <OffersItem>
       <ItemsRow>
         <Item
-          notEnough={!props.canBeTraded}
+          notEnough={props.offerAvailability === 'NOT_ENOUGH_ITEMS'}
           {...props.buyingItem}
           amount={props.amountOfBuyingItems}
         />
         <img src={arrowIcon} alt="" />
         <Item {...props.sellingItem} amount={props.amountOfSellingItems} />
       </ItemsRow>
-      <Button disabled={!props.canBeTraded} onClick={makeNewDeal}>Обменять</Button>
+      <Button disabled={props.offerAvailability !== 'AVAILABLE'} onClick={makeNewDeal}>Обменять</Button>
     </OffersItem>
   );
 };

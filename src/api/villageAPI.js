@@ -4,11 +4,13 @@ const axiosInstance = axios.create({
   baseURL: 'https://vc-api.dmitrysviridov.ru/api/v1/villages/'
 });
 
-// TODO: Настроить пагинацию
-
 const villageAPI = {
   async getVillages(token) {
     return axiosInstance.get('/', {
+      params: {
+        page: -1,
+        size: -1
+      },
       headers: {
         Authorization: 'Bearer ' + token
       }
@@ -16,6 +18,10 @@ const villageAPI = {
   },
   async getVillagers(villageId, token) {
     return axiosInstance.get(`${villageId}/villagersWithExtraData`, {
+      params: {
+        page: -1,
+        size: -1
+      },
       headers: {
         Authorization: 'Bearer ' + token
       }

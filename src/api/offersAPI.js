@@ -4,15 +4,13 @@ const axiosInstance = axios.create({
   baseURL: 'https://vc-api.dmitrysviridov.ru/api/v1/'
 });
 
-// TODO: Настроить пагинацию
-
 const villageAPI = {
   async getOffersByVillagerId(villagerId, token) {
-    return axiosInstance.get('offers/filter', {
-      // TODO: Сделать нормальный reputationLevel
+    return axiosInstance.get('offers/allowedOffers', {
       params: {
-        villagerId,
-        reputationLevel: 1
+        page: -1,
+        size: -1,
+        villagerId
       },
       headers: {
         Authorization: 'Bearer ' + token
@@ -20,12 +18,17 @@ const villageAPI = {
     });
   },
   async makeNewDeal(offerId, token) {
-    return axiosInstance.post('deals', offerId, {
-      headers: {
-        Authorization: 'Bearer ' + token,
-        'Content-type': 'application/json'
+    return axiosInstance.post(
+      'deals',
+      {
+        offerId
+      },
+      {
+        headers: {
+          Authorization: 'Bearer ' + token
+        }
       }
-    });
+    );
   }
 };
 

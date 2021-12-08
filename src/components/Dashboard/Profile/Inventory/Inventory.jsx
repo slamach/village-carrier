@@ -17,7 +17,6 @@ const Inventory = (props) => {
     <InventoryContainer>
       <InventoryLabel>Инвентарь</InventoryLabel>
       <InventoryGrid>
-        {/* TODO: Убрать изумруды из инвентаря (?) */}
         {props.items.map((item) => (
           <InventoryItem key={item.id}>
             <Item {...item} />
