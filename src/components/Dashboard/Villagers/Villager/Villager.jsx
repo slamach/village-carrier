@@ -54,7 +54,7 @@ const Village = (props) => {
   return (
     <VillagesItem>
       <p>{props.reputationLevel}</p>
-      <img src={skin} width="77" height="154" alt={`${props.professionName} - скин`} />
+      <img src={skin} width={props.professionName === 'Фермер' ? '101' : '77'} height="154" alt={`${props.professionName} - скин`} />
       <VillageLink to={`/villager/${props.villagerId}`}>
         <h2>{props.name}</h2>
       </VillageLink>
