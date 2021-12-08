@@ -1,5 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
-import styled from 'styled-components/macro';
+import styled, { createGlobalStyle } from 'styled-components';
 import minecraft from 'assets/fonts/minecraft.woff2';
 import buttonBackground from 'assets/img/bg-button.png';
 

@@ -21,7 +21,7 @@ const LoginForm = (props) => {
   let errorMessage = props.authErrorMessage
     ? props.authErrorMessage
     : errors.username || errors.password
-    ? 'Введите имя пользователя и пароль!'
+    ? 'Введите имя пользователя и пароль'
     : '';
 
   return (

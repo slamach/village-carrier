@@ -6,6 +6,7 @@ import {
   DashboardMessage
 } from './DashboardStyles';
 import Header from './Header/HeaderContainer';
+import connectionLost from 'assets/img/connection-lost.png';
 
 const Dashboard = (props) => {
   useEffect(() => {
@@ -32,6 +33,13 @@ const Dashboard = (props) => {
         <DashboardMessage>
           <p>Загрузка приложения</p>
           <p>Получения данных с сервера</p>
+        </DashboardMessage>
+      ) : null}
+      {props.lostConnection ? (
+        <DashboardMessage>
+          <img src={connectionLost} width="184" height="124" alt="Житель наелся и спит" />
+          <p>Упс! Соединение с&nbsp;сервером потеряно.</p>
+          <p>Попробуйте обновить страницу.</p>
         </DashboardMessage>
       ) : null}
     </>

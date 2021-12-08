@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import villageAPI from 'api/villageAPI';
-import { incLoading, decLoading } from './app';
+import { incLoading, decLoading, setLostConnection } from './app';
 
 const villagersSlice = createSlice({
   name: 'villagers',
@@ -13,8 +13,11 @@ const villagersSlice = createSlice({
       state.villagers = action.payload;
     },
     getVillagersFailure: (state, action) => {
-      // TODO: Разобрать ошибки
       switch (action.payload.status) {
+        // FIXME: Исправить код ошибки на несуществующую деревню
+        case 500:
+          state.villagersErrorMessage = 'Упс! Кажется, такой деревни не существует.';
+          break;
         default:
           state.villagersErrorMessage = `Непредвиденный ответ ${action.payload.status} от сервера!`;
       }
@@ -30,12 +33,16 @@ export const getVillagers = (villageId) => async (dispatch, getState) => {
     const response = await villageAPI.getVillagers(villageId, getState().auth.user.token);
     dispatch(villagersSlice.actions.getVillagersSuccess(response.data));
   } catch (error) {
-    dispatch(
-      villagersSlice.actions.getVillagersFailure({
-        status: error.response.status,
-        data: error.response.data
-      })
-    );
+    if (error.response) {
+      dispatch(
+        villagersSlice.actions.getVillagersFailure({
+          status: error.response.status,
+          data: error.response.data
+        })
+      );
+    } else {
+      dispatch(setLostConnection());
+    }
   }
   dispatch(decLoading());
 };

@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import offersAPI from 'api/offersAPI';
-import { incLoading, decLoading } from './app';
+import { incLoading, decLoading, setLostConnection } from './app';
 import { getUserData } from './profile';
 
 const offersSlice = createSlice({
@@ -16,8 +16,11 @@ const offersSlice = createSlice({
       state.lastRequstedVillagerId = action.payload.villagerId;
     },
     getOffersFailure: (state, action) => {
-      // TODO: Разобрать ошибки
       switch (action.payload.status) {
+        // FIXME: Исправить код ошибки на несуществующего жителя
+        case 500:
+          state.offersErrorMessage = 'Упс! Кажется, такого жителя не существует.';
+          break;
         default:
           state.offersErrorMessage = `Непредвиденный ответ ${action.payload.status} от сервера!`;
       }
@@ -33,12 +36,16 @@ export const getOffers = (villagerId) => async (dispatch, getState) => {
     const response = await offersAPI.getOffersByVillagerId(villagerId, getState().auth.user.token);
     dispatch(offersSlice.actions.getOffersSuccess({ data: response.data, villagerId }));
   } catch (error) {
-    dispatch(
-      offersSlice.actions.getOffersFailure({
-        status: error.response.status,
-        data: error.response.data
-      })
-    );
+    if (error.response) {
+      dispatch(
+        offersSlice.actions.getOffersFailure({
+          status: error.response.status,
+          data: error.response.data
+        })
+      );
+    } else {
+      dispatch(setLostConnection());
+    }
   }
   dispatch(decLoading());
 };
@@ -50,7 +57,7 @@ export const makeNewDeal = (offerId) => async (dispatch, getState) => {
     dispatch(getUserData());
     dispatch(getOffers(getState().offers.lastRequstedVillagerId));
   } catch (error) {
-    // FIXME: Добавить обработку ошибок
+    // TODO: Добавить обработку ошибок
     console.log(`${error.response.status}: ${error.message}`);
   }
   dispatch(decLoading());

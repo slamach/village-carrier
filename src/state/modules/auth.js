@@ -15,13 +15,16 @@ const authSlice = createSlice({
       state.user = action.payload;
     },
     authFailure: (state, action) => {
-      // TODO: Разобрать разные ошибки
+      if (!action.payload) {
+        state.authErrorMessage = `Соединение с сервером потеряно`;
+        return;
+      }
       switch (action.payload.status) {
         case 400:
-          state.authErrorMessage = 'Неверные имя пользователя или пароль!';
+          state.authErrorMessage = action.payload.data.message;
           break;
         default:
-          state.authErrorMessage = `Непредвиденный ответ ${action.payload.status} от сервера!`;
+          state.authErrorMessage = `Непредвиденный ответ ${action.payload.status} от сервера`;
       }
     },
     clearAuthErrorMessage: (state, action) => {
@@ -49,10 +52,7 @@ export const login = (username, password) => async (dispatch, getState) => {
     localStorage.setItem('user', JSON.stringify(user));
   } catch (error) {
     dispatch(
-      authSlice.actions.authFailure({
-        status: error.response.status,
-        data: error.response.data
-      })
+      authSlice.actions.authFailure(error.response)
     );
   }
   dispatch(decLoading());
@@ -71,10 +71,7 @@ export const register = (username, password) => async (dispatch, getState) => {
     localStorage.setItem('user', JSON.stringify(user));
   } catch (error) {
     dispatch(
-      authSlice.actions.authFailure({
-        status: error.response.status,
-        data: error.response.data
-      })
+      authSlice.actions.authFailure(error.response)
     );
   }
   dispatch(decLoading());

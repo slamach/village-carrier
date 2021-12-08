@@ -16,7 +16,7 @@ const Offer = (props) => {
           {...props.buyingItem}
           amount={props.amountOfBuyingItems}
         />
-        <img src={arrowIcon} alt="" />
+        <img src={arrowIcon} width="23" height="15" alt="" />
         <Item {...props.sellingItem} amount={props.amountOfSellingItems} />
       </ItemsRow>
       <Button disabled={props.offerAvailability !== 'AVAILABLE'} onClick={makeNewDeal}>Обменять</Button>

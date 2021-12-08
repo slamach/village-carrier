@@ -17,7 +17,7 @@ const Header = (props) => {
     <StyledHeader>
       <NavBar>
         <NavLogo to="/">
-          <img src={shortLogo} alt="Village Carrier" />
+          <img src={shortLogo} width="141" height="48" alt="Village Carrier" />
         </NavLogo>
         <StatList>
           <StatItem icon={emerald}>{props.userEmeralds}</StatItem>

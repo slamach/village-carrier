@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import villageAPI from 'api/villageAPI';
-import { incLoading, decLoading } from './app';
+import { incLoading, decLoading, setLostConnection } from './app';
 
 const villagesSlice = createSlice({
   name: 'villages',
@@ -13,7 +13,6 @@ const villagesSlice = createSlice({
       state.villages = action.payload;
     },
     getVillagesFailure: (state, action) => {
-      // TODO: Разобрать ошибки
       switch (action.payload.status) {
         default:
           state.villagesErrorMessage = `Непредвиденный ответ ${action.payload.status} от сервера!`;
@@ -30,12 +29,16 @@ export const getVillages = () => async (dispatch, getState) => {
     const response = await villageAPI.getVillages(getState().auth.user.token);
     dispatch(villagesSlice.actions.getVillagesSuccess(response.data));
   } catch (error) {
-    dispatch(
-      villagesSlice.actions.getVillagesFailure({
-        status: error.response.status,
-        data: error.response.data
-      })
-    );
+    if (error.response) {
+      dispatch(
+        villagesSlice.actions.getVillagesFailure({
+          status: error.response.status,
+          data: error.response.data
+        })
+      );
+    } else {
+      dispatch(setLostConnection());
+    }
   }
   dispatch(decLoading());
 };

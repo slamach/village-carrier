@@ -1,14 +1,12 @@
 import styled from 'styled-components';
 import { Button } from '../../AppStyles';
 
-export const Username = styled.p`
-  text-align: center;
-`;
+export const Username = styled.p``;
 
 export const ProfContainer = styled.main`
-  /* TODO: Сделать адаптивную ширину */
-  width: 516px;
-  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding: 40px 0;
 
   ${Username} {
@@ -17,6 +15,6 @@ export const ProfContainer = styled.main`
 
   ${Button} {
     min-width: 350px;
-    margin: 25px auto 0;
+    margin: 25px 0 0;
   }
 `;

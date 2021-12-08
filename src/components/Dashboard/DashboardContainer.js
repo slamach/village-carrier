@@ -5,7 +5,8 @@ import { getUserData } from 'state/modules/profile';
 function mapStateToProps(state) {
   return {
     user: state.auth.user,
-    loading: state.app.loading
+    loading: state.app.loading,
+    lostConnection: state.app.lostConnection
   };
 }
 

@@ -1,5 +1,4 @@
-import styled from 'styled-components/macro';
-import { createGlobalStyle } from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 import { Link } from 'react-router-dom';
 import optionsBackground from 'assets/img/bg-options.png';
 import { Button } from '../AppStyles';

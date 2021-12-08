@@ -20,13 +20,18 @@ const villageAPI = {
     });
   },
   async makeNewWithdrawal(token) {
-    // TODO: Добавить выбор деревни для вывода
-    return axiosInstance.post('withdrawals', 1, {
-      headers: {
-        Authorization: 'Bearer ' + token,
-        'Content-type': 'application/json'
+    // TODO: Добавить выбор деревни для вывода (?)
+    return axiosInstance.post(
+      'withdrawals',
+      {
+        villageId: 1
+      },
+      {
+        headers: {
+          Authorization: 'Bearer ' + token
+        }
       }
-    });
+    );
   }
 };
 

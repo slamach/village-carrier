@@ -40,7 +40,7 @@ const RegisterForm = (props) => {
               required: 'Введите имя пользователя и пароль!',
               minLength: {
                 value: 4,
-                message: 'Имя пользователя должно содержать не менее 4 символов!'
+                message: 'Имя пользователя должно содержать не менее 4 символов'
               }
             })}
           />
@@ -52,10 +52,10 @@ const RegisterForm = (props) => {
             type="password"
             autoComplete="new-password"
             {...register('password', {
-              required: 'Введите имя пользователя и пароль!',
+              required: 'Введите имя пользователя и пароль',
               minLength: {
                 value: 8,
-                message: 'Пароль должнен содержать не менее 8 символов!'
+                message: 'Пароль должнен содержать не менее 8 символов'
               }
             })}
           />
