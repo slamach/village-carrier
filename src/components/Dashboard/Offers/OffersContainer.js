@@ -4,7 +4,8 @@ import Offers from './Offers';
 
 function mapStateToProps(state) {
   return {
-    offers: state.offers.offers
+    offers: state.offers.offers,
+    offersErrorMessage: state.offers.offersErrorMessage
   };
 }
 

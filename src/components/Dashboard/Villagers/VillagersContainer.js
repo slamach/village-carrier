@@ -4,7 +4,8 @@ import Villagers from './Villagers';
 
 function mapStateToProps(state) {
   return {
-    villagers: state.villagers.villagers
+    villagers: state.villagers.villagers,
+    villagersErrorMessage: state.villagers.villagersErrorMessage
   };
 }
 

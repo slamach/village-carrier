@@ -11,11 +11,11 @@ const villagersSlice = createSlice({
   reducers: {
     getVillagersSuccess: (state, action) => {
       state.villagers = action.payload;
+      state.villagersErrorMessage = '';
     },
     getVillagersFailure: (state, action) => {
       switch (action.payload.status) {
-        // FIXME: Исправить код ошибки на несуществующую деревню
-        case 500:
+        case 400:
           state.villagersErrorMessage = 'Упс! Кажется, такой деревни не существует.';
           break;
         default:

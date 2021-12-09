@@ -14,11 +14,11 @@ const offersSlice = createSlice({
     getOffersSuccess: (state, action) => {
       state.offers = action.payload.data;
       state.lastRequstedVillagerId = action.payload.villagerId;
+      state.offersErrorMessage = '';
     },
     getOffersFailure: (state, action) => {
       switch (action.payload.status) {
-        // FIXME: Исправить код ошибки на несуществующего жителя
-        case 500:
+        case 400:
           state.offersErrorMessage = 'Упс! Кажется, такого жителя не существует.';
           break;
         default:

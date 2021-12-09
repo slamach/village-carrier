@@ -1,5 +1,6 @@
 import styled, { createGlobalStyle } from 'styled-components';
 import dashboardBackground from 'assets/img/bg-dashboard.png';
+import { Button } from 'components/AppStyles';
 
 export const DashboardSpecificGlobalStyle = createGlobalStyle`
   body {
@@ -38,5 +39,29 @@ export const DashboardMessage = styled.div`
     &:last-child {
       margin-bottom: 0;
     }
+  }
+`;
+
+export const PageErrorMessage = styled.div`
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  top: 50%;
+  left: 50%;
+  width: 318px;
+  transform: translate(-50%, -50%);
+
+  img {
+    margin-bottom: 30px;
+  }
+
+  p {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  ${Button} {
+    width: 100%;
   }
 `;

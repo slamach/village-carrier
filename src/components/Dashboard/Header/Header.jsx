@@ -29,7 +29,7 @@ const Header = (props) => {
             </Button>
           </MenuItem>
           <MenuItem>
-            <Button as="button" onClick={props.logout}>
+            <Button onClick={props.logout}>
               Выйти
             </Button>
           </MenuItem>

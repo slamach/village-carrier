@@ -14,7 +14,10 @@ const profileSlice = createSlice({
       state.userEmeralds = action.payload.amountOfEmeralds;
     },
     getUserDataFailure: (state, action) => {
-      state.userEmeralds = undefined;
+      switch (action.payload.status) {
+        default:
+          state.profileErrorMessage = `Непредвиденный ответ ${action.payload.status} от сервера!`;
+      }
     },
     getInventorySuccess: (state, action) => {
       state.inventory = action.payload;
@@ -36,9 +39,16 @@ export const getUserData = () => async (dispatch, getState) => {
     const response = await playerAPI.getUserData(getState().auth.user.token);
     dispatch(profileSlice.actions.getUserDataSuccess(response.data));
   } catch (error) {
-    dispatch(
-      profileSlice.actions.getUserDataFailure(error.response)
-    );
+    if (error.response) {
+      dispatch(
+        profileSlice.actions.getUserDataFailure({
+          status: error.response.status,
+          data: error.response.data
+        })
+      );
+    } else {
+      dispatch(setLostConnection());
+    }
   }
   dispatch(decLoading());
 };
