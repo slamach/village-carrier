@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { VillagesList } from './VillagesStyles';
 import Village from './Village/Village';
+import { VisuallyHidden } from 'components/AppStyles';
 
 const Villages = (props) => {
   useEffect(() => {
@@ -9,11 +10,14 @@ const Villages = (props) => {
   }, []);
 
   return (
-    <VillagesList>
-      {props.villages.map((village) => (
-        <Village key={village.id} {...village} />
-      ))}
-    </VillagesList>
+    <>
+      <VisuallyHidden as="h1">Деревни</VisuallyHidden>
+      <VillagesList>
+        {props.villages.map((village) => (
+          <Village key={village.id} {...village} />
+        ))}
+      </VillagesList>
+    </>
   );
 };
 

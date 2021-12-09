@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
-import Inventory from "./Inventory/Inventory";
-import { ProfContainer, Username } from "./ProfileStyles";
-import { Button } from '../../AppStyles';
+import Inventory from './Inventory/Inventory';
+import { ProfContainer, Username } from './ProfileStyles';
+import { Button, VisuallyHidden } from '../../AppStyles';
 
 const Profile = (props) => {
   useEffect(() => {
@@ -10,12 +10,15 @@ const Profile = (props) => {
   }, []);
 
   return (
-    <ProfContainer>
-      <Username>{props.user.username}</Username>
-      <Inventory items={props.inventory} />
-      <Button onClick={props.makeNewWithdrawal}>Вывести вещи</Button>
-    </ProfContainer>
+    <>
+      <VisuallyHidden as="h1">Профиль</VisuallyHidden>
+      <ProfContainer>
+        <Username>{props.user.username}</Username>
+        <Inventory items={props.inventory} />
+        <Button onClick={props.makeNewWithdrawal}>Вывести вещи</Button>
+      </ProfContainer>
+    </>
   );
-}
+};
 
 export default Profile;

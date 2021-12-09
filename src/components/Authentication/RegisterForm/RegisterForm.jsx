@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { MenuLink } from '../AuthenticationStyles';
 import { useForm } from 'react-hook-form';
 import { InputContainer, InputLabel, Input, ErrorMessage } from '../AuthenticationStyles';
-import { Button } from '../../AppStyles';
+import { Button, VisuallyHidden } from '../../AppStyles';
 
 const RegisterForm = (props) => {
   useEffect(() => {
@@ -28,6 +28,7 @@ const RegisterForm = (props) => {
 
   return (
     <>
+      <VisuallyHidden as="h1">Регистрация аккаунта</VisuallyHidden>
       <form
         onSubmit={handleSubmit(onSubmit, props.authErrorMessage && props.clearAuthErrorMessage)}>
         <InputContainer>

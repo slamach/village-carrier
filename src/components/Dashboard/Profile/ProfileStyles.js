@@ -3,7 +3,7 @@ import { Button } from '../../AppStyles';
 
 export const Username = styled.p``;
 
-export const ProfContainer = styled.main`
+export const ProfContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;

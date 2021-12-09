@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { OffersList } from './OffersStyles';
 import Offer from './Offer/OfferContainer';
 import { PageErrorMessage } from '../DashboardStyles';
-import { Button } from '../../AppStyles';
+import { Button, VisuallyHidden } from '../../AppStyles';
 import defaultVillager from 'assets/img/villager-default.png';
 
 const Offers = (props) => {
@@ -16,6 +16,7 @@ const Offers = (props) => {
 
   return (
     <>
+      <VisuallyHidden as="h1">Предложения жителя</VisuallyHidden>
       {!props.offersErrorMessage && props.offers.length > 0 ? (
         <OffersList>
           {props.offers.map((offer) => (

@@ -5,7 +5,7 @@ import { VillagersList } from './VillagersStyles';
 import Villager from './Villager/Villager';
 import { PageErrorMessage } from '../DashboardStyles';
 import emptyVillage from 'assets/img/empty-village.png';
-import { Button } from '../../AppStyles';
+import { Button, VisuallyHidden } from '../../AppStyles';
 
 const Villagers = (props) => {
   let { villageId } = useParams();
@@ -16,6 +16,7 @@ const Villagers = (props) => {
 
   return (
     <>
+      <VisuallyHidden as="h1">Жители деревни</VisuallyHidden>
       {!props.villagersErrorMessage && props.villagers.length > 0 ? (
         <VillagersList>
           {props.villagers.map((villager) => (
