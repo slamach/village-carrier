@@ -57,8 +57,12 @@ export const makeNewDeal = (offerId) => async (dispatch, getState) => {
     dispatch(getUserData());
     dispatch(getOffers(getState().offers.lastRequstedVillagerId));
   } catch (error) {
-    // TODO: Добавить обработку ошибок
-    console.log(`${error.response.status}: ${error.message}`);
+    if (error.response) {
+      // TODO: Добавить обработку ошибок
+      console.log(`${error.response.status}: ${error.message}`);
+    } else {
+      dispatch(setLostConnection());
+    }
   }
   dispatch(decLoading());
 };

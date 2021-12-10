@@ -32,6 +32,20 @@ const villageAPI = {
         }
       }
     );
+  },
+  async getKits(token) {
+    return axiosInstance.get('kits', {
+      headers: {
+        Authorization: 'Bearer ' + token
+      }
+    });
+  },
+  async obtainKit(kitId, token) {
+    return axiosInstance.get(`kits/${kitId}`, {
+      headers: {
+        Authorization: 'Bearer ' + token
+      }
+    });
   }
 };
 

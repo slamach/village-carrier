@@ -51,9 +51,16 @@ export const login = (username, password) => async (dispatch, getState) => {
     dispatch(authSlice.actions.authSuccess(user));
     localStorage.setItem('user', JSON.stringify(user));
   } catch (error) {
-    dispatch(
-      authSlice.actions.authFailure(error.response)
-    );
+    if (error.response) {
+      dispatch(
+        authSlice.actions.authFailure({
+          status: error.response.status,
+          data: error.response.data
+        })
+      );
+    } else {
+      dispatch(authSlice.actions.authFailure());
+    }
   }
   dispatch(decLoading());
 };
@@ -71,7 +78,10 @@ export const register = (username, password) => async (dispatch, getState) => {
     localStorage.setItem('user', JSON.stringify(user));
   } catch (error) {
     dispatch(
-      authSlice.actions.authFailure(error.response)
+      authSlice.actions.authFailure({
+        status: error.response.status,
+        data: error.response.data
+      })
     );
   }
   dispatch(decLoading());
