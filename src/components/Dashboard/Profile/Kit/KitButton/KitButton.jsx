@@ -37,8 +37,8 @@ const KitButton = (props) => {
   };
 
   return (
-    <Button disabled={timer > 0} onClick={() => props.obtainKit(props.kitId)}>
-      {timer > 0 ? formatTime(timer) : 'Получить'}
+    <Button disabled={timer >= 0} onClick={() => props.obtainKit(props.kitId)}>
+      {timer >= 0 ? formatTime(timer) : 'Получить'}
     </Button>
   );
 };
