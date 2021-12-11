@@ -10,6 +10,7 @@ import villagerDefault from 'assets/img/villager-default.png';
 
 const Village = (props) => {
   let skin;
+  let width = 77;
   switch (props.professionName) {
     case 'Бронник':
       skin = villagerArmorer;
@@ -22,6 +23,7 @@ const Village = (props) => {
       break;
     case 'Фермер':
       skin = villagerFarmer;
+      width = 101;
       break;
     case 'Кожевник':
       skin = villagerLeatherworker;
@@ -54,7 +56,12 @@ const Village = (props) => {
   return (
     <VillagesItem>
       <p>{props.reputationLevel}</p>
-      <img src={skin} width={props.professionName === 'Фермер' ? '101' : '77'} height="154" alt={`${props.professionName} - скин`} />
+      <img
+        src={skin}
+        width={width}
+        height="154"
+        alt={`${props.professionName} - скин`}
+      />
       <VillageLink to={`/villager/${props.villagerId}`}>
         <h2>{props.name}</h2>
       </VillageLink>

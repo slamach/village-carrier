@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 import { VillagersList } from './VillagersStyles';
 import Villager from './Villager/Villager';
 import { PageErrorMessage } from '../DashboardStyles';
-import emptyVillage from 'assets/img/empty-village.png';
 import { Button, VisuallyHidden } from '../../AppStyles';
+import villageEmpty from 'assets/img/village-empty.png';
 
 const Villagers = (props) => {
   let { villageId } = useParams();
@@ -25,7 +25,7 @@ const Villagers = (props) => {
         </VillagersList>
       ) : (
         <PageErrorMessage>
-          <img src={emptyVillage} width="182" height="154" alt="Пустая страница жителей деревни" />
+          <img src={villageEmpty} width="182" height="154" alt="Пустая страница жителей деревни" />
           <p>
             {props.villagersErrorMessage
               ? props.villagersErrorMessage

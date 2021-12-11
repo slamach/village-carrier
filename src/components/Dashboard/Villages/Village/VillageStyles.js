@@ -1,8 +1,5 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import house1 from 'assets/img/house1.png';
-import house2 from 'assets/img/house2.png';
-import house3 from 'assets/img/house3.png';
 
 export const VillageLink = styled(Link)`
   &::after {
@@ -17,31 +14,20 @@ export const VillageLink = styled(Link)`
 
 export const VillagesItem = styled.li`
   position: relative;
-  padding: 180px 20px 10px;
+  padding: 10px 20px;
   text-align: center;
   color: ${({ theme }) => theme.colors.mainText};
   text-shadow: none;
-  background-image: url('${house1}');
-  background-repeat: no-repeat;
-  background-position: center 10px;
   background-color: #c6c6c6;
   box-shadow: ${({ theme }) => theme.elements.containerShadow};
-
-  &:nth-child(3n + 1) {
-    background-image: url('${house1}');
-  }
-
-  &:nth-child(3n + 2) {
-    background-image: url('${house2}');
-  }
-
-  &:nth-child(3n) {
-    background-image: url('${house3}');
-  }
 
   &:hover,
   &:focus {
     box-shadow: ${({ theme }) => theme.elements.containerShadowHover};
+  }
+
+  img {
+    margin: 10px 0;
   }
 
   h2 {
