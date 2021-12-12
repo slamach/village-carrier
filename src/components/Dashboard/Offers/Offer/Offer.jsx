@@ -19,6 +19,7 @@ const Offer = (props) => {
           notEnough={props.offerAvailability === 'NOT_ENOUGH_ITEMS'}
           {...props.buyingItem}
           amount={props.amountOfBuyingItems}
+          amountWithDiscount={props.amountOfBuyingItemsWithDiscount}
         />
         <img src={arrowIcon} width="23" height="15" alt="Обменять на" />
         <Item {...props.sellingItem} amount={props.amountOfSellingItems} />

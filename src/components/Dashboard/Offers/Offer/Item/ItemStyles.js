@@ -3,9 +3,18 @@ import itemsSprite from 'assets/img/items2.png';
 
 export const ItemAmount = styled.p`
   position: absolute;
+  ${({ discount }) => (discount ? 'top: 0;' : 'bottom: 0;')};
+  ${({ discount }) => (discount ? 'left: 0;' : 'right: 0;')};
+  ${({ notEnough, discount, theme }) => notEnough && !discount && `color: ${theme.colors.error};`};
+  ${({ discount }) => discount && 'text-decoration: line-through;'};
+  user-select: none;
+`;
+
+export const ItemAmountWithDiscount = styled.p`
+  position: absolute;
   bottom: 0;
   right: 0;
-  ${({ notEnough, theme }) => notEnough && `color: ${theme.colors.error}`};
+  ${({ notEnough, theme }) => notEnough && `color: ${theme.colors.error};`};
   user-select: none;
 `;
 
