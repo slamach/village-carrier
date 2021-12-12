@@ -1,28 +1,62 @@
 import { useEffect } from 'react';
 import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
-import { OffersList } from './OffersStyles';
+import {
+  OffersList,
+  ReputationContainer,
+  ReputationBar,
+  ReputationBarFullRow
+} from './OffersStyles';
 import Offer from './Offer/OfferContainer';
-import { PageErrorMessage } from '../DashboardStyles';
-import { Button, VisuallyHidden } from '../../AppStyles';
+import { PageErrorMessage, PageHeader, PageTitle } from '../DashboardStyles';
+import { Button } from '../../AppStyles';
 import defaultVillager from 'assets/img/villager-default.png';
+import emptyReputationBar from 'assets/img/trading-xp-empty.png';
+import fullReputationBar from 'assets/img/trading-xp-full.png';
 
 const Offers = (props) => {
   let { villagerId } = useParams();
   useEffect(() => {
     props.getOffers(villagerId);
+    props.getVillagerInfo(villagerId);
     // eslint-disable-next-line
   }, []);
 
   return (
     <>
-      <VisuallyHidden as="h1">Предложения жителя</VisuallyHidden>
       {!props.offersErrorMessage && props.offers.length > 0 ? (
-        <OffersList>
-          {props.offers.map((offer) => (
-            <Offer key={offer.offerId} {...offer} />
-          ))}
-        </OffersList>
+        <>
+          <PageHeader>
+            <PageTitle>Предложения жителя {props.lastRequstedVillager.name}</PageTitle>
+            <ReputationContainer>
+              <p>
+                {props.lastRequstedVillager.professionName} -{' '}
+                {props.lastRequstedVillager.reputationLevelName}
+              </p>
+              <ReputationBar
+                barWidth={
+                  (props.lastRequstedVillager.currentReputation /
+                    (props.lastRequstedVillager.currentReputation +
+                      props.lastRequstedVillager.dealsToNextReputationLevel)) *
+                  100
+                }
+                role="progressbar"
+                aria-valuenow={props.lastRequstedVillager.currentReputation}
+                aria-valuemax={
+                  props.lastRequstedVillager.currentReputation +
+                  props.lastRequstedVillager.dealsToNextReputationLevel
+                }>
+                <img src={emptyReputationBar} width="306" height="15" alt="" />
+                <ReputationBarFullRow src={fullReputationBar} width="306" height="15" alt="" />
+              </ReputationBar>
+            </ReputationContainer>
+          </PageHeader>
+          <OffersList>
+            {props.offers.map((offer) => (
+              <Offer key={offer.offerId} {...offer} />
+            ))}
+          </OffersList>
+        </>
       ) : (
         <PageErrorMessage>
           <img

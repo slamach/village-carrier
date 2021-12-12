@@ -5,6 +5,7 @@ import villageSnowyTundra from 'assets/img/village-snowy-tundra.png';
 import villageSavanna from 'assets/img/village-savanna.png';
 import villageTaiga from 'assets/img/village-taiga.png';
 import villageEmpty from 'assets/img/village-empty.png';
+import { ZoomText } from '../../DashboardStyles';
 
 const Village = (props) => {
   let skin;
@@ -45,6 +46,7 @@ const Village = (props) => {
       <p>
         X: {props.xcoordinate} Z: {props.zcoordinate}
       </p>
+      {props.hasRaid && <ZoomText>Рейд</ZoomText>}
     </VillagesItem>
   );
 };

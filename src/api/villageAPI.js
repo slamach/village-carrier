@@ -6,7 +6,7 @@ const axiosInstance = axios.create({
 
 const villageAPI = {
   async getVillages(token) {
-    return axiosInstance.get('/', {
+    return axiosInstance.get('villagesWithExtraData', {
       params: {
         page: -1,
         size: -1
@@ -22,6 +22,13 @@ const villageAPI = {
         page: -1,
         size: -1
       },
+      headers: {
+        Authorization: 'Bearer ' + token
+      }
+    });
+  },
+  async getVillageInfo(villageId, token) {
+    return axiosInstance.get(`villageWithExtraData/${villageId}`, {
       headers: {
         Authorization: 'Bearer ' + token
       }

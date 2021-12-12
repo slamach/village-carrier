@@ -29,6 +29,13 @@ const villageAPI = {
         }
       }
     );
+  },
+  async getVillagerInfo(villagerId, token) {
+    return axiosInstance.get(`villagers/villagerWithExtraData/${villagerId}`, {
+      headers: {
+        Authorization: 'Bearer ' + token
+      }
+    });
   }
 };
 

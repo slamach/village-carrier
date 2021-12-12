@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { ZoomText } from '../../DashboardStyles';
 
 export const VillageLink = styled(Link)`
   &::after {
@@ -38,5 +39,11 @@ export const VillagesItem = styled.li`
 
   p {
     font-size: ${({ theme }) => theme.fonts.smallSize};
+  }
+
+  ${ZoomText} {
+    position: absolute;
+    top: 0;
+    right: -10px;
   }
 `;

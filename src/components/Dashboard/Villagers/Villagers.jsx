@@ -1,28 +1,40 @@
 import { useEffect } from 'react';
 import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
-import { VillagersList } from './VillagersStyles';
+import { VillagersList, RaidButtonContainer } from './VillagersStyles';
 import Villager from './Villager/Villager';
-import { PageErrorMessage } from '../DashboardStyles';
-import { Button, VisuallyHidden } from '../../AppStyles';
+import { PageErrorMessage, PageHeader, PageTitle } from '../DashboardStyles';
+import { Button } from '../../AppStyles';
 import villageEmpty from 'assets/img/village-empty.png';
+import { ZoomText } from '../DashboardStyles';
 
 const Villagers = (props) => {
   let { villageId } = useParams();
   useEffect(() => {
     props.getVillagers(villageId);
+    props.getVillageInfo(villageId);
     // eslint-disable-next-line
   }, []);
 
   return (
     <>
-      <VisuallyHidden as="h1">Жители деревни</VisuallyHidden>
       {!props.villagersErrorMessage && props.villagers.length > 0 ? (
-        <VillagersList>
-          {props.villagers.map((villager) => (
-            <Villager key={villager.villagerId} {...villager} />
-          ))}
-        </VillagersList>
+        <>
+          <PageHeader>
+            <PageTitle>Жители деревни {props.lastRequestedVillage.name}</PageTitle>
+            {props.lastRequestedVillage.hasRaid && (
+              <RaidButtonContainer>
+                <Button>Попытаться защитить</Button>
+                {props.lastRequestedVillage.hasRaid && <ZoomText>Рейд</ZoomText>}
+              </RaidButtonContainer>
+            )}
+          </PageHeader>
+          <VillagersList>
+            {props.villagers.map((villager) => (
+              <Villager key={villager.villagerId} {...villager} />
+            ))}
+          </VillagersList>
+        </>
       ) : (
         <PageErrorMessage>
           <img src={villageEmpty} width="182" height="154" alt="Пустая страница жителей деревни" />
