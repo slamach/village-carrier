@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import { Button } from '../../AppStyles';
-import Kit from './Kit/Kit';
-import { KitContainer } from './Kit/KitStyles';
+import { KitsItem } from './Kit/KitStyles';
 
 export const ProfileSectionTitle = styled.h2`
   margin-bottom: 25px;
@@ -21,12 +20,10 @@ export const InventoryContainer = styled.section`
   }
 `;
 
-export const KitItem = styled(Kit)``;
-
 export const KitsContainer = styled.ul`
   list-style: none;
 
-  ${KitContainer} {
+  ${KitsItem} {
     margin-bottom: 25px;
 
     &:last-child {

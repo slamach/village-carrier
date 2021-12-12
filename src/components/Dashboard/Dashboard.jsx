@@ -24,7 +24,7 @@ const Dashboard = (props) => {
     <>
       <DashboardSpecificGlobalStyle />
       <Header />
-      <DashboardContainer>
+      <DashboardContainer hidden={props.loading || props.lostConnection}>
         <Outlet />
       </DashboardContainer>
       {props.loading ? (

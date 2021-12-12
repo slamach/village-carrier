@@ -1,10 +1,10 @@
 import { useEffect } from 'react';
 import Inventory from './Inventory/Inventory';
+import Kit from './Kit/Kit';
 import {
   ProfContainer,
   InventoryContainer,
   KitsContainer,
-  KitItem,
   ProfileSectionTitle
 } from './ProfileStyles';
 import { Button, VisuallyHidden } from '../../AppStyles';
@@ -21,15 +21,18 @@ const Profile = (props) => {
       <VisuallyHidden as="h1">Профиль</VisuallyHidden>
       <ProfContainer>
         <InventoryContainer>
-          <ProfileSectionTitle>{`Инвентарь ${props.user.username}`}</ProfileSectionTitle>
+          <ProfileSectionTitle>
+            <VisuallyHidden as="span">Инвентарь</VisuallyHidden>
+            {props.user.username}
+          </ProfileSectionTitle>
           <Inventory items={props.inventory} />
           <Button onClick={props.makeNewWithdrawal}>Вывести вещи</Button>
         </InventoryContainer>
         <section>
-          <ProfileSectionTitle as="h2">Наборы</ProfileSectionTitle>
+          <ProfileSectionTitle>Наборы</ProfileSectionTitle>
           <KitsContainer>
             {props.kits.map((kit) => (
-              <KitItem key={kit.id} {...kit} />
+              <Kit key={kit.id} {...kit} />
             ))}
           </KitsContainer>
         </section>

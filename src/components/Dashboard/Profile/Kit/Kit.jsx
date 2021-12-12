@@ -1,18 +1,20 @@
 import Item from '../../Offers/Offer/Item/Item';
-import { KitContainer, KitGrid } from './KitStyles';
+import { KitsItem, KitGrid } from './KitStyles';
 import KitButton from './KitButton/KitButtonContainer';
 
 const Kit = (props) => {
   return (
-    <KitContainer>
+    <KitsItem>
       <h3>{props.name}</h3>
       <KitGrid>
         {props.items.map((item) => (
-          <Item key={item.id} as="li" {...item} />
+          <li>
+            <Item key={item.id} as="li" {...item} />
+          </li>
         ))}
       </KitGrid>
       <KitButton time={props.secondsBeforeObtainment} kitId={props.id} />
-    </KitContainer>
+    </KitsItem>
   );
 };
 

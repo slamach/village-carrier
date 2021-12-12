@@ -17,9 +17,11 @@ export const MainContainer = styled.main`
 
 export const DashboardContainer = styled(MainContainer)`
   margin-bottom: 40px;
+
+  ${({ hidden }) => hidden && 'display: none;'}
 `;
 
-export const DashboardMessage = styled.div`
+export const DashboardMessage = styled.aside`
   position: absolute;
   display: flex;
   flex-direction: column;
@@ -42,7 +44,7 @@ export const DashboardMessage = styled.div`
   }
 `;
 
-export const PageErrorMessage = styled.div`
+export const PageErrorMessage = styled.aside`
   position: absolute;
   display: flex;
   flex-direction: column;

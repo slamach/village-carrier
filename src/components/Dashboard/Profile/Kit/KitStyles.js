@@ -11,7 +11,7 @@ export const KitGrid = styled.ul`
   list-style: none;
 `;
 
-export const KitContainer = styled.div`
+export const KitsItem = styled.li`
   max-width: 250px;
   padding: 10px 20px;
   background-color: #c6c6c6;

@@ -14,7 +14,7 @@ export const VillageLink = styled(Link)`
 
 export const VillagesItem = styled.li`
   position: relative;
-  padding: 10px 20px;
+  padding: 20px 20px 10px;
   text-align: center;
   color: ${({ theme }) => theme.colors.mainText};
   text-shadow: none;
@@ -27,7 +27,7 @@ export const VillagesItem = styled.li`
   }
 
   img {
-    margin: 10px 0;
+    margin-bottom: 10px;
   }
 
   h2 {

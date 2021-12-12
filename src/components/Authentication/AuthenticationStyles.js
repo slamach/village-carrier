@@ -31,7 +31,7 @@ export const Input = styled.input`
   }
 `;
 
-export const InputContainer = styled.div`
+export const InputContainer = styled.p`
   display: flex;
   flex-direction: column;
 

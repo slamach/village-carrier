@@ -1,4 +1,4 @@
-import { VillagesItem, VillageLink } from './VillagerStyles';
+import { VillagersItem, VillagerLink } from './VillagerStyles';
 import villagerArmorer from 'assets/img/villager-armorer.png';
 import villagerButcher from 'assets/img/villager-butcher.png';
 import villagerCleric from 'assets/img/villager-cleric.png';
@@ -54,24 +54,24 @@ const Village = (props) => {
   };
 
   return (
-    <VillagesItem>
-      <p>{props.reputationLevel}</p>
+    <VillagersItem>
       <img
         src={skin}
         width={width}
         height="154"
         alt={`${props.professionName} - скин`}
       />
-      <VillageLink to={`/villager/${props.villagerId}`}>
+      <VillagerLink to={`/villager/${props.villagerId}`}>
         <h2>{props.name}</h2>
-      </VillageLink>
+      </VillagerLink>
       <p>{props.professionName}</p>
       <p>{`${props.offersAmount} ${declOfNum(props.offersAmount, [
         'сделка',
         'сделки',
         'сделок'
       ])}`}</p>
-    </VillagesItem>
+      <p>{props.reputationLevel}</p>
+    </VillagersItem>
   );
 };
 
