@@ -1,12 +1,12 @@
 import axios from 'axios';
 
 const axiosInstance = axios.create({
-  baseURL: 'https://vc-api.dmitrysviridov.ru/api/v1/villages/'
+  baseURL: 'https://vc-api.dmitrysviridov.ru/api/v1/'
 });
 
 const villageAPI = {
   async getVillages(token) {
-    return axiosInstance.get('villagesWithExtraData', {
+    return axiosInstance.get('villages/villagesWithExtraData', {
       params: {
         page: -1,
         size: -1
@@ -17,7 +17,7 @@ const villageAPI = {
     });
   },
   async getVillagers(villageId, token) {
-    return axiosInstance.get(`${villageId}/villagersWithExtraData`, {
+    return axiosInstance.get(`villages/${villageId}/villagersWithExtraData`, {
       params: {
         page: -1,
         size: -1
@@ -28,7 +28,14 @@ const villageAPI = {
     });
   },
   async getVillageInfo(villageId, token) {
-    return axiosInstance.get(`villageWithExtraData/${villageId}`, {
+    return axiosInstance.get(`villages/villageWithExtraData/${villageId}`, {
+      headers: {
+        Authorization: 'Bearer ' + token
+      }
+    });
+  },
+  async fightRaid(raidId, token) {
+    return axiosInstance.get(`raids/${raidId}`, {
       headers: {
         Authorization: 'Bearer ' + token
       }

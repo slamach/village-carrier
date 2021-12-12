@@ -17,3 +17,9 @@ export const RaidButtonContainer = styled.div`
     right: -10px;
   }
 `;
+
+export const RaidMessage = styled.p`
+  max-width: 300px;
+  margin-left: 25px;
+  font-size: ${({ theme }) => theme.fonts.smallSize};
+`;

@@ -69,13 +69,13 @@ export const PageErrorMessage = styled.aside`
 `;
 
 export const PageTitle = styled.h1`
+  margin-right: auto;
   font-size: ${({ theme }) => theme.fonts.defaultSize};
   font-weight: 400;
 `;
 
 export const PageHeader = styled.header`
   display: flex;
-  justify-content: space-between;
   align-items: center;
   margin-bottom: 30px;
 `;
