@@ -2,6 +2,11 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { Button } from 'components/AppStyles';
 
+export const HeaderLink = styled.a`
+  padding: 10px;
+  cursor: pointer;
+`;
+
 export const MenuItem = styled.li``;
 
 export const MenuList = styled.ul`

@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
-import { Button } from '../../AppStyles';
 import shortLogo from 'assets/img/logo-short.svg';
 import {
+  HeaderLink,
   MenuItem,
   MenuList,
   NavBar,
@@ -24,14 +24,17 @@ const Header = (props) => {
         </StatList>
         <MenuList>
           <MenuItem>
-            <Button as={Link} to="/profile">
-              Профиль
-            </Button>
+            <HeaderLink as={Link} to="/">
+              Главная
+            </HeaderLink>
           </MenuItem>
           <MenuItem>
-            <Button onClick={props.logout}>
-              Выйти
-            </Button>
+            <HeaderLink as={Link} to="/profile">
+              Профиль
+            </HeaderLink>
+          </MenuItem>
+          <MenuItem>
+            <HeaderLink onClick={props.logout}>Выйти</HeaderLink>
           </MenuItem>
         </MenuList>
       </NavBar>
