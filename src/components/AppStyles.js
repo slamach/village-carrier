@@ -19,6 +19,7 @@ export const theme = {
   },
   fonts: {
     defaultSize: '21px',
+    bigSize: '24px',
     smallSize: '17px',
     textShadow: '2px 2px 0px #383838'
   },

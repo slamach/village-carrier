@@ -9,7 +9,7 @@ const Kit = (props) => {
       <KitGrid>
         {props.items.map((item) => (
           <li>
-            <Item key={item.id} as="li" {...item} />
+            <Item key={item.id} {...item} />
           </li>
         ))}
       </KitGrid>

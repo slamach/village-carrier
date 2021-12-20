@@ -4,7 +4,7 @@ import { Button } from 'components/AppStyles';
 
 export const DashboardSpecificGlobalStyle = createGlobalStyle`
   body {
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url('${dashboardBackground}');
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('${dashboardBackground}');
   }
 `;
 
@@ -31,7 +31,7 @@ export const DashboardMessage = styled.aside`
   right: 0;
   top: 0;
   bottom: 0;
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
     url('${dashboardBackground}');
 
   p,
@@ -70,7 +70,7 @@ export const PageErrorMessage = styled.aside`
 
 export const PageTitle = styled.h1`
   margin-right: auto;
-  font-size: ${({ theme }) => theme.fonts.defaultSize};
+  font-size: ${({ theme }) => theme.fonts.bigSize};
   font-weight: 400;
 `;
 

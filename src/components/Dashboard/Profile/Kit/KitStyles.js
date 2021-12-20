@@ -1,14 +1,21 @@
 import { Button } from '../../../AppStyles';
 import styled from 'styled-components';
-import Item from '../../Offers/Offer/Item/Item';
-
-export const ItemStyled = styled(Item)``;
 
 export const KitGrid = styled.ul`
-  display: grid;
-  grid-template-columns: repeat(4, 48px);
-  gap: 6px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
   list-style: none;
+
+  li {
+    margin-right: 6px;
+    margin-bottom: 6px;
+
+    &:last-child,
+    &:nth-child(4n) {
+      margin-right: 0;
+    }
+  }
 `;
 
 export const KitsItem = styled.li`
@@ -27,7 +34,7 @@ export const KitsItem = styled.li`
   }
 
   ${KitGrid} {
-    margin-bottom: 20px;
+    margin-bottom: 14px;
   }
 
   ${Button} {
