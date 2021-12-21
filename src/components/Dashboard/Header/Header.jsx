@@ -34,7 +34,7 @@ const Header = (props) => {
             </HeaderLink>
           </MenuItem>
           <MenuItem>
-            <HeaderLink onClick={props.logout}>Выйти</HeaderLink>
+            <HeaderLink href="" onClick={props.logout}>Выйти</HeaderLink>
           </MenuItem>
         </MenuList>
       </NavBar>
