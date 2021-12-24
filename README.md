@@ -7,22 +7,35 @@
 Учебный проект по мотивам игры Minecraft.  
 Торгуйте с жителями, защищайте деревни, получайте бесплатные вещи в наборах и выводите нажитое!  
 
-[Перейти к проекту](https://vc.dmitrysviridov.ru)
+[Репозиторий с API](https://github.com/sloning/Information-systems-and-databases)  
 
 ### Использованные технологии
 - HTML
 - CSS
+  - Styled Components
 - React
   - Redux
-  - React Router
+  - Redux Toolkit
+  - React Router 6
   - React Hook Forms
-  - Styled Components
 
 ### Особенности проекта
 - Статическая верстка
 - Семантичность и доступность разметки
-- Запросы на написанное специально для проекта API
-- И много других интересных фич :)
+- Работа с формами
+- Работа с написанным специально для проекта API
+- JWT-аутентификация
+
+## Сборка и запуск
+```
+npm install
+npm start
+```
+
+Для production-сборки
+```
+npm build
+```
 
 ## Контакты
 Дмитрий Свиридов  
