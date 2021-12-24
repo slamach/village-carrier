@@ -37,6 +37,8 @@ npm start
 npm build
 ```
 
+[Перейти к проекту](https://vc.dmitrysviridov.ru)  
+
 ## Контакты
 Дмитрий Свиридов  
 Telegram: [slamach](https://t.me/slamach)  
