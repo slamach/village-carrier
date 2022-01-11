@@ -1,5 +1,5 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
-import { ThemeProvider } from "styled-components";
+import { ThemeProvider } from 'styled-components';
 import { theme } from './AppStyles';
 import { GlobalStyle } from './AppStyles';
 import Authentication from './Authentication/AuthenticationContainer';
