@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
-import { VillagersList, RaidButtonContainer, RaidMessage } from './VillagersStyles';
+import { VillagersList, RaidContainer, RaidButtonContainer, RaidMessage } from './VillagersStyles';
 import Villager from './Villager/Villager';
 import { PageErrorMessage, PageHeader, PageTitle, ZoomText } from '../DashboardStyles';
 import { Button } from '../../AppStyles';
@@ -23,7 +23,7 @@ const Villagers = (props) => {
             <PageTitle>Жители деревни {props.lastRequestedVillage.name}</PageTitle>
             {props.lastRequestedVillage.hasRaid &&
               (props.raidStatus === 0 || props.raidStatus === 2) && (
-                <>
+                <RaidContainer>
                   <RaidButtonContainer>
                     <Button onClick={() => props.fightRaid(props.lastRequestedVillage.raidId)}>
                       Защитить деревню
@@ -35,7 +35,7 @@ const Villagers = (props) => {
                       ? 'Защищая деревню, вы можете получить скидку или потерять все свои вещи'
                       : 'К сожалению, вам не удалось защитить деревню'}
                   </RaidMessage>
-                </>
+                </RaidContainer>
               )}
             {props.raidStatus === 1 ? (
               <RaidMessage>Вы защитили деревню, скидка ваша</RaidMessage>

@@ -1,11 +1,11 @@
-import styled, { createGlobalStyle } from 'styled-components';
-import { Link } from 'react-router-dom';
-import optionsBackground from 'assets/img/bg-options.png';
-import { Button } from '../AppStyles';
+import styled, { createGlobalStyle } from "styled-components";
+import { Link } from "react-router-dom";
+import optionsBackground from "assets/img/bg-options.png";
+import { Button } from "../AppStyles";
 
 export const AuthSpecificGlobalStyle = createGlobalStyle`
   body {
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('${optionsBackground}');
+    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('${optionsBackground}');
   }
 `;
 
@@ -18,6 +18,7 @@ export const InputLabel = styled.label`
 `;
 
 export const Input = styled.input`
+  width: 100%;
   padding: 14px 14px 15px;
   font: inherit;
   color: ${({ theme }) => theme.colors.inputText};
@@ -25,13 +26,15 @@ export const Input = styled.input`
   background-color: #000000;
   border: 3px solid ${({ theme }) => theme.colors.menuAddText};
 
-  &:hover,
-  &:focus {
-    border-color: #ffffff;
+  @media (min-width: ${({ theme }) => theme.breakpoints.desktop}) {
+    &:hover,
+    &:focus {
+      border-color: #ffffff;
+    }
   }
 `;
 
-export const InputContainer = styled.p`
+export const InputContainer = styled.div`
   display: flex;
   flex-direction: column;
 
@@ -58,16 +61,19 @@ export const AuthContainer = styled.main`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 441px;
-  padding: 40px 60px;
+  width: 325px;
   text-align: center;
 
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    width: 300px;
+  }
+
   ${LongLogo} {
-    margin: 0 auto 35px;
+    margin: 0 auto 25px;
   }
 
   ${InputContainer} {
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     text-align: left;
 
     &:last-of-type {
@@ -76,8 +82,8 @@ export const AuthContainer = styled.main`
   }
 
   ${Button} {
-    margin-top: 30px;
-    margin-bottom: 20px;
+    margin-top: 20px;
+    margin-bottom: 15px;
     width: 100%;
   }
 

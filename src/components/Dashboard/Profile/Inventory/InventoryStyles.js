@@ -1,5 +1,5 @@
-import { ItemAmount } from 'components/Dashboard/Offers/Offer/Item/ItemStyles';
-import styled from 'styled-components';
+import { ItemAmount } from "components/Dashboard/Offers/Offer/Item/ItemStyles";
+import styled from "styled-components";
 
 export const InventoryLabel = styled.p`
   color: ${({ theme }) => theme.colors.mainText};
@@ -11,6 +11,10 @@ export const InventoryContainer = styled.div`
   background-color: #c6c6c6;
   box-shadow: ${({ theme }) => theme.elements.containerShadow};
 
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    padding: 15px;
+  }
+
   ${InventoryLabel} {
     margin-bottom: 10px;
   }
@@ -21,6 +25,10 @@ export const InventoryGrid = styled.ul`
   grid-template-columns: repeat(9, 48px);
   gap: 6px;
   list-style: none;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    grid-template-columns: repeat(6, 48px);
+  }
 `;
 
 export const InventoryItem = styled.li`
@@ -29,8 +37,10 @@ export const InventoryItem = styled.li`
   background-color: ${({ theme }) => theme.colors.slotBackground};
   box-shadow: ${({ theme }) => theme.elements.inventorySlotShadow};
 
-  &:hover {
-    background-color: ${({ theme }) => theme.colors.slotBackgroundHover};
+  @media (min-width: ${({ theme }) => theme.breakpoints.desktop}) {
+    &:hover {
+      background-color: ${({ theme }) => theme.colors.slotBackgroundHover};
+    }
   }
 
   ${ItemAmount} {

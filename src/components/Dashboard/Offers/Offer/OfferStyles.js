@@ -1,5 +1,5 @@
-import { Button } from 'components/AppStyles';
-import styled from 'styled-components';
+import { Button } from "components/AppStyles";
+import styled from "styled-components";
 
 export const ItemsRow = styled.div`
   display: flex;
@@ -16,6 +16,10 @@ export const OffersItem = styled.li`
   padding: 15px 40px;
   background-color: #c6c6c6;
   box-shadow: ${({ theme }) => theme.elements.containerShadow};
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    padding: 15px 15%;
+  }
 
   ${ItemsRow} {
     margin-bottom: 10px;

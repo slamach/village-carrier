@@ -5,6 +5,15 @@ export const OffersList = styled.ul`
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
   list-style: none;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 export const ReputationBarFullRow = styled.img`
@@ -30,6 +39,8 @@ export const ReputationBar = styled.div`
 `;
 
 export const ReputationContainer = styled.div`
+  margin-left: auto;
+  margin-right: auto;
   p {
     margin-bottom: 10px;
     text-align: center;
