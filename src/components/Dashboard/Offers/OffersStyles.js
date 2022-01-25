@@ -40,9 +40,13 @@ export const ReputationBar = styled.div`
 
 export const ReputationContainer = styled.div`
   margin-left: auto;
-  margin-right: auto;
+
   p {
     margin-bottom: 10px;
     text-align: center;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    margin-right: auto;
   }
 `;
