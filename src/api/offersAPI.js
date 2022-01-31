@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const axiosInstance = axios.create({
-  baseURL: 'https://vc-api.dmitrysviridov.ru/api/v1/'
+  baseURL: 'https://isbd.vlados.me/api/v1/',
 });
 
 const villageAPI = {
@@ -10,33 +10,33 @@ const villageAPI = {
       params: {
         page: -1,
         size: -1,
-        villagerId
+        villagerId,
       },
       headers: {
-        Authorization: 'Bearer ' + token
-      }
+        Authorization: 'Bearer ' + token,
+      },
     });
   },
   async makeNewDeal(offerId, token) {
     return axiosInstance.post(
       'deals',
       {
-        offerId
+        offerId,
       },
       {
         headers: {
-          Authorization: 'Bearer ' + token
-        }
+          Authorization: 'Bearer ' + token,
+        },
       }
     );
   },
   async getVillagerInfo(villagerId, token) {
     return axiosInstance.get(`villagers/villagerWithExtraData/${villagerId}`, {
       headers: {
-        Authorization: 'Bearer ' + token
-      }
+        Authorization: 'Bearer ' + token,
+      },
     });
-  }
+  },
 };
 
 export default villageAPI;
