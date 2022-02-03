@@ -1,7 +1,5 @@
 {
   "name": "village-carrier",
-  "author": "Dmitry Sviridov",
-  "license": "MIT",
   "homepage": "https://vc.dmitrysviridov.ru",
   "private": true,
   "dependencies": {
