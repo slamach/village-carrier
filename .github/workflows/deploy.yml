@@ -17,7 +17,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
           registry-url: 'https://registry.npmjs.org'
       - name: Build project 🔧
-        run: npm ci && npm run build:template
+        run: npm ci && npm run build
       - name: Install SSH key 📪
         uses: shimataro/ssh-key-action@v2
         with:
