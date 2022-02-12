@@ -26,4 +26,4 @@ jobs:
       - name: Add to known_hosts
         run: ssh-keyscan -H ${{ secrets.DEPLOY_HOST }} >> ~/.ssh/known_hosts
       - name: Deploy to the server 📦
-        run: rsync -avz --delete --no-perms --no-owner --no-group ./build/ ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}:${{ secrets.DEPLOY_PATH }}
+        run: rsync -avz --delete --no-perms --no-owner --no-group --omit-dir-times ./build/ ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}:${{ secrets.DEPLOY_PATH }}
