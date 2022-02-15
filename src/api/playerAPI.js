@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const axiosInstance = axios.create({
-  baseURL: 'https://isbd.vlados.me/api/v1/',
+  baseURL: 'https://vc-api.dmitrysviridov.ru/api/v1/',
 });
 
 const villageAPI = {
