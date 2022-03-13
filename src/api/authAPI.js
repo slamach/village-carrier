@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const axiosInstance = axios.create({
-  baseURL: 'https://vc-api.dmitrysviridov.ru/api/v1/auth/'
+  baseURL: 'https://vc-api.dmitrysviridov.com/api/v1/auth/'
 });
 
 const authAPI = {
