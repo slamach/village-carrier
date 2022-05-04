@@ -34,7 +34,7 @@ npm start
 
 Для production-сборки
 ```
-npm build
+npm run build
 ```
 
 [Перейти к проекту](https://vc.dmitrysviridov.ru)  
