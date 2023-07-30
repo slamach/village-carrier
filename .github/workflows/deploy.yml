@@ -1,7 +1,7 @@
 name: Deploy to Personal Virtual Server
 on:
   push:
-    branches: [ master ]
+    branches: [master]
 jobs:
   build:
     runs-on: ubuntu-latest
