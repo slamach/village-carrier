@@ -5,11 +5,12 @@
 ## О проекте
 
 Учебный проект по мотивам игры Minecraft.  
-Торгуйте с жителями, защищайте деревни, получайте бесплатные вещи в наборах и выводите нажитое!  
+Торгуйте с жителями, защищайте деревни, получайте бесплатные вещи в наборах и выводите нажитое!
 
-[Репозиторий с API](https://github.com/sloning/Information-systems-and-databases)  
+[Репозиторий с API](https://github.com/sloning/Information-systems-and-databases)
 
 ### Использованные технологии
+
 - HTML
 - CSS
   - Styled Components
@@ -20,6 +21,7 @@
   - React Hook Forms
 
 ### Особенности проекта
+
 - Адаптивная верстка
 - Семантичность и доступность разметки
 - Работа с формами
@@ -27,20 +29,23 @@
 - JWT-аутентификация
 
 ## Сборка и запуск
+
 ```
 npm install
 npm start
 ```
 
 Для production-сборки
+
 ```
 npm run build
 ```
 
-[Перейти к проекту](https://vc.dmitrysviridov.ru)  
+[Перейти к проекту](https://vc.dmitriisviridov.com)  
 Можно пройти регистрацию или воспользоваться тестовым аккаунтом testtest:testtest.
 
 ## Контакты
+
 Дмитрий Свиридов  
 Telegram: [slamach](https://t.me/slamach)  
 Email: sviridov.dvv@gmail.com
